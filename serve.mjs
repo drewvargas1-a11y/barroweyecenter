@@ -22,6 +22,10 @@ const MIME = {
 http.createServer((req, res) => {
   let urlPath = req.url.split('?')[0];
   if (urlPath === '/') urlPath = '/index.html';
+  // Serve directory index.html for clean URLs (e.g. /blog/ → /blog/index.html)
+  if (!path.extname(urlPath)) {
+    urlPath = urlPath.replace(/\/?$/, '/index.html');
+  }
 
   const filePath = path.join(__dirname, urlPath);
   const ext = path.extname(filePath).toLowerCase();

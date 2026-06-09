@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eye Care Blog | Barrow Eye Center | Russellville, KY</title>
+  <meta name="description" content="Eye care tips, vision health news, and updates from Barrow Eye Center in Russellville, KY — updated weekly from the Vision Source network.">
+  <link rel="canonical" href="https://barroweyecenter.com/blog/">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: { 950:'#142B20', 900:'#1F3D2E', 800:'#2A5040', 700:'#3A6A52', 600:'#4A8A6A' },
+            gold:   { 600:'#A87830', 500:'#C8943A', 400:'#D9AA58', 300:'#ECC57A', 100:'#F7EDDB' },
+            cream:  '#F8F4EF',
+            sage:   { 300:'#A8C5B5', 200:'#C5D9CF', 100:'#E3EEE9' },
+          },
+          fontFamily: {
+            display: ['"Playfair Display"','Georgia','serif'],
+            sans:    ['Inter','system-ui','sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:#ADADAD; color:#1A1A1A; }
+
+    #navbar { transition:background 0.5s cubic-bezier(.4,0,.2,1),box-shadow 0.5s cubic-bezier(.4,0,.2,1); }
+    #navbar.scrolled { background:rgba(31,61,46,0.96); backdrop-filter:blur(16px); box-shadow:0 2px 32px rgba(20,43,32,0.28); }
+    .nav-link { position:relative; }
+    .nav-link::after { content:''; position:absolute; bottom:-3px; left:0; right:0; height:1.5px; background:#C8943A; transform:scaleX(0); transform-origin:left; transition:transform 0.28s cubic-bezier(.4,0,.2,1); }
+    .nav-link:hover::after { transform:scaleX(1); }
+
+    .heading-display { font-family:'Playfair Display',Georgia,serif; letter-spacing:-0.03em; line-height:1.1; }
+    .body-text { line-height:1.7; }
+
+    .btn-gold { display:inline-block; background:#C8943A; color:#fff; font-weight:500; padding:0.75rem 1.75rem; border-radius:0.375rem; transition:background 0.25s cubic-bezier(.4,0,.2,1),transform 0.18s cubic-bezier(.34,1.56,.64,1),box-shadow 0.25s; box-shadow:0 2px 12px rgba(200,148,58,0.35); }
+    .btn-gold:hover { background:#A87830; transform:translateY(-2px); box-shadow:0 6px 24px rgba(200,148,58,0.45); }
+    .btn-gold:focus-visible { outline:3px solid #ECC57A; outline-offset:2px; }
+    .btn-gold:active { transform:translateY(0); }
+
+    .btn-outline { display:inline-block; background:transparent; color:#fff; font-weight:500; border:1.5px solid rgba(255,255,255,0.35); padding:0.75rem 2rem; border-radius:0.375rem; transition:background 0.25s,border-color 0.25s; }
+    .btn-outline:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.7); }
+
+    @keyframes shimmer { 0%{background-position:-300% center} 100%{background-position:300% center} }
+    @keyframes card-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .gold-shimmer { display:inline-block; padding-right:0.08em; padding-bottom:0.12em; background:linear-gradient(105deg,#A87830 0%,#C8943A 25%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 75%,#A87830 100%); background-size:300% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:shimmer 5s linear infinite; font-style:italic; }
+
+    .gold-rule { height:3px; background:#C8943A; border-radius:2px; width:48px; flex-shrink:0; }
+
+    /* Blog card */
+    .blog-card { background:linear-gradient(-45deg,#1F3D2E,#2A5040,#3A6A52,#4A8A6A,#3A6A52,#2A5040,#1F3D2E); background-size:400% 400%; animation:card-flow 10s ease infinite; border-radius:1rem; overflow:hidden; border:1.5px solid rgba(168,195,176,0.22); box-shadow:0 2px 12px rgba(20,43,32,0.30),0 8px 36px rgba(20,43,32,0.20); transition:transform 0.25s cubic-bezier(.4,0,.2,1),box-shadow 0.25s,border-color 0.25s,filter 0.25s; display:flex; flex-direction:column; }
+    .blog-card:hover { transform:translateY(-5px); filter:brightness(1.18); box-shadow:0 8px 28px rgba(20,43,32,0.45),0 20px 56px rgba(20,43,32,0.28); border-color:rgba(168,195,176,0.48); }
+    .blog-card-img { width:100%; height:200px; object-fit:cover; }
+    .blog-card-img-placeholder { width:100%; height:200px; background:linear-gradient(135deg,#2A5040 0%,#1F3D2E 100%); display:flex; align-items:center; justify-content:center; }
+    .blog-card-body { padding:1.5rem; flex:1; display:flex; flex-direction:column; }
+    .blog-card-tag { display:inline-block; background:rgba(255,255,255,0.14); color:rgba(255,255,255,0.88); font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:0.25rem 0.625rem; border-radius:999px; margin-bottom:0.75rem; }
+    .blog-card-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:600; line-height:1.35; color:rgba(255,255,255,0.96); margin-bottom:0.625rem; }
+    .blog-card-excerpt { font-size:0.875rem; color:rgba(255,255,255,0.75); line-height:1.65; flex:1; }
+    .blog-card-footer { display:flex; align-items:center; justify-content:space-between; margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.14); }
+    .blog-card-date { font-size:0.75rem; color:rgba(255,255,255,0.52); }
+    .blog-card-link { font-size:0.8rem; font-weight:600; color:#C8943A; display:flex; align-items:center; gap:4px; transition:color 0.2s; cursor:pointer; background:none; border:none; padding:0; font-family:inherit; }
+    .blog-card-link:hover { color:#A87830; }
+
+    /* Skeleton */
+    .skeleton { background:linear-gradient(90deg,#e5e7eb 25%,#f3f4f6 50%,#e5e7eb 75%); background-size:200% 100%; animation:sk 1.5s infinite; border-radius:0.5rem; }
+    @keyframes sk { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+    #vs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; }
+
+    /* Practice posts */
+    .practice-post { background:#fff; border-radius:1rem; padding:2rem; border-left:4px solid #C8943A; box-shadow:0 2px 8px rgba(28,51,41,0.06),0 8px 32px rgba(28,51,41,0.08); transition:transform 0.25s cubic-bezier(.4,0,.2,1); }
+    .practice-post:hover { transform:translateY(-3px); }
+
+    /* ═══ ARTICLE READER OVERLAY ═══ */
+    #article-reader {
+      position:fixed; inset:0; z-index:200;
+      display:flex; align-items:flex-end; justify-content:center;
+      background:rgba(9,20,16,0.72);
+      backdrop-filter:blur(6px);
+      opacity:0; pointer-events:none;
+      transition:opacity 0.35s cubic-bezier(.4,0,.2,1);
+    }
+    #article-reader.open {
+      opacity:1; pointer-events:all;
+    }
+    #reader-panel {
+      width:100%; max-width:820px;
+      height:92vh;
+      background:#FAF7F3;
+      border-radius:1.25rem 1.25rem 0 0;
+      overflow:hidden;
+      display:flex; flex-direction:column;
+      transform:translateY(40px);
+      transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);
+      box-shadow:0 -8px 60px rgba(9,20,16,0.4);
+    }
+    #article-reader.open #reader-panel {
+      transform:translateY(0);
+    }
+
+    /* Reader top bar */
+    #reader-topbar {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1rem 1.5rem;
+      background:#1F3D2E;
+      flex-shrink:0;
+    }
+    #reader-back-btn {
+      display:flex; align-items:center; gap:0.5rem;
+      color:rgba(255,255,255,0.8); font-size:0.85rem; font-weight:500;
+      cursor:pointer; border:none; background:none; font-family:inherit;
+      padding:0.375rem 0.75rem; border-radius:0.375rem;
+      transition:background 0.2s,color 0.2s;
+    }
+    #reader-back-btn:hover { background:rgba(255,255,255,0.1); color:#fff; }
+    #reader-original-link {
+      display:flex; align-items:center; gap:0.375rem;
+      color:rgba(200,148,58,0.9); font-size:0.8rem; font-weight:500;
+      text-decoration:none;
+      transition:color 0.2s;
+    }
+    #reader-original-link:hover { color:#ECC57A; }
+
+    /* Reader scrollable content */
+    #reader-scroll {
+      flex:1; overflow-y:auto; overscroll-behavior:contain;
+      scroll-behavior:smooth;
+    }
+    #reader-hero-img {
+      width:100%; height:320px; object-fit:cover; display:block;
+    }
+    #reader-hero-placeholder {
+      width:100%; height:200px;
+      background:linear-gradient(135deg,#2A5040 0%,#1F3D2E 100%);
+      display:flex; align-items:center; justify-content:center;
+    }
+    #reader-header {
+      padding:2rem 2.5rem 1.5rem;
+      border-bottom:1px solid #EBE5DD;
+    }
+    #reader-tag {
+      display:inline-block; background:#E3EEE9; color:#2A5040;
+      font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
+      padding:0.25rem 0.625rem; border-radius:999px; margin-bottom:1rem;
+    }
+    #reader-title {
+      font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3vw,2.2rem);
+      font-weight:700; color:#1F3D2E; line-height:1.2; letter-spacing:-0.02em;
+      margin-bottom:0.75rem;
+    }
+    #reader-date {
+      font-size:0.8rem; color:#9CA3AF;
+    }
+    #reader-body {
+      padding:2rem 2.5rem 3.5rem;
+    }
+
+    /* Prose styles for article content */
+    .reader-content { max-width:680px; }
+    .reader-content p { color:#374151; line-height:1.8; margin:0 0 1.35em; font-size:1.0625rem; }
+    .reader-content h1,.reader-content h2,.reader-content h3,.reader-content h4 {
+      font-family:'Playfair Display',serif; color:#1F3D2E;
+      margin:1.75em 0 0.6em; letter-spacing:-0.02em; line-height:1.2;
+    }
+    .reader-content h2 { font-size:1.5rem; }
+    .reader-content h3 { font-size:1.25rem; }
+    .reader-content h4 { font-size:1.05rem; }
+    .reader-content a { color:#C8943A; text-underline-offset:3px; }
+    .reader-content a:hover { color:#A87830; }
+    .reader-content img { max-width:100%; height:auto; border-radius:0.625rem; margin:1.75em 0; display:block; box-shadow:0 4px 24px rgba(28,51,41,0.1); }
+    .reader-content ul,.reader-content ol { padding-left:1.5em; margin:0 0 1.35em; }
+    .reader-content li { color:#374151; line-height:1.75; margin-bottom:0.5em; }
+    .reader-content blockquote { border-left:3px solid #C8943A; padding:0.25rem 0 0.25rem 1.25rem; margin:1.75em 0; color:#6B7280; font-style:italic; font-size:1.05rem; }
+    .reader-content figure { margin:1.75em 0; }
+    .reader-content figcaption { font-size:0.8rem; color:#9CA3AF; text-align:center; margin-top:0.5rem; }
+    .reader-content table { width:100%; border-collapse:collapse; margin:1.5em 0; font-size:0.9rem; }
+    .reader-content th,.reader-content td { border:1px solid #E3EEE9; padding:0.625rem 0.875rem; text-align:left; }
+    .reader-content th { background:#E3EEE9; color:#2A5040; font-weight:600; }
+    .reader-content hr { border:none; border-top:1px solid #E3EEE9; margin:2em 0; }
+
+    @media (max-width:640px) {
+      #reader-panel { border-radius:1rem 1rem 0 0; height:95vh; }
+      #reader-header { padding:1.5rem 1.25rem 1rem; }
+      #reader-body { padding:1.5rem 1.25rem 3rem; }
+    }
+      /* dark-section */
+    .dark-section{color:rgba(255,255,255,0.85);}.dark-section h1,.dark-section h2,.dark-section h3,.dark-section h4{color:rgba(255,255,255,0.95) !important;}.dark-section .text-forest-900,.dark-section .text-forest-800,.dark-section .text-forest-700{color:rgba(255,255,255,0.95) !important;}.dark-section .text-gray-400,.dark-section .text-gray-500,.dark-section .text-gray-600{color:rgba(255,255,255,0.68) !important;}.dark-section *[style*="color:#1F3D2E"],.dark-section *[style*="color:#1C3329"]{color:rgba(255,255,255,0.95) !important;}.dark-section .ins-chip{color:rgba(255,255,255,0.80) !important;border-color:rgba(255,255,255,0.22) !important;}.dark-section .ins-chip:hover{background:rgba(255,255,255,0.10) !important;color:#fff !important;border-color:rgba(255,255,255,0.50) !important;}
+      /* card-glow */
+    .card-shadow{box-shadow:0 2px 16px rgba(20,43,32,0.32),0 8px 40px rgba(20,43,32,0.22),0 0 70px rgba(200,148,58,0.22),0 0 160px rgba(200,148,58,0.10);}.team-card{box-shadow:0 2px 12px rgba(20,43,32,0.30),0 8px 32px rgba(20,43,32,0.20),0 0 70px rgba(200,148,58,0.20),0 0 150px rgba(200,148,58,0.10);}.tech-card{box-shadow:0 2px 16px rgba(10,28,20,0.50),0 8px 32px rgba(0,0,0,0.35),0 0 70px rgba(200,148,58,0.18),0 0 140px rgba(200,148,58,0.09);}.blog-card{box-shadow:0 4px 20px rgba(20,43,32,0.40),0 0 70px rgba(200,148,58,0.20),0 0 150px rgba(200,148,58,0.10);}.card-shadow h3,.service-card h3,.patient-card h3,.tech-card h3,.tip-card h3{background:linear-gradient(105deg,#B8882A 0%,#C8943A 22%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 78%,#B8882A 100%);background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent !important;animation:shimmer 5s linear infinite;}.patient-card-title{background:linear-gradient(105deg,#B8882A 0%,#C8943A 22%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 78%,#B8882A 100%) !important;background-size:300% auto !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;animation:shimmer 5s linear infinite !important;}.blog-card-title{background:linear-gradient(105deg,#B8882A 0%,#C8943A 22%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 78%,#B8882A 100%) !important;background-size:300% auto !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;color:transparent !important;animation:shimmer 5s linear infinite !important;}.team-card>p:first-of-type{background:linear-gradient(105deg,#B8882A 0%,#C8943A 22%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 78%,#B8882A 100%) !important;background-size:300% auto !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;animation:shimmer 5s linear infinite !important;}
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar" class="fixed top-0 w-full z-50 py-4 px-6" style="background:rgba(31,61,46,0.97);">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="/" class="flex flex-col leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 rounded">
+      <span class="text-white font-bold uppercase" style="font-family:'Inter',sans-serif; font-size:1.15rem; letter-spacing:0.07em;">Barrow Eye Center, PLC</span>
+      <div style="display:flex;align-items:center;gap:7px;margin-top:6px;">
+        <span style="font-size:0.6rem;letter-spacing:0.12em;color:rgba(255,255,255,0.42);text-transform:uppercase;white-space:nowrap;">A Member of</span>
+        <img src="https://visionsource.com/site/templates/assets/img/vs-logo.png" alt="Vision Source" style="display:block;width:104px;height:auto;filter:brightness(0) saturate(100%) invert(72%) sepia(55%) saturate(700%) hue-rotate(5deg) brightness(108%);" onerror="this.style.display='none';"/>
+      </div>
+    </a>
+    <div class="hidden lg:flex items-center gap-7">
+      <a href="/#about"      class="nav-link text-white/80 hover:text-white text-sm font-medium transition-colors duration-200">About</a>
+      <a href="/#services"   class="nav-link text-white/80 hover:text-white text-sm font-medium transition-colors duration-200">Services</a>
+      <a href="/#technology" class="nav-link text-white/80 hover:text-white text-sm font-medium transition-colors duration-200">Technology</a>
+      <a href="/#team"       class="nav-link text-white/80 hover:text-white text-sm font-medium transition-colors duration-200">Our Team</a>
+      <a href="/#patient"    class="nav-link text-white/80 hover:text-white text-sm font-medium transition-colors duration-200">Patient Center</a>
+      <a href="/#contact"    class="nav-link text-white/80 hover:text-white text-sm font-medium transition-colors duration-200">Contact</a>
+      <a href="/blog/" class="nav-link text-white text-sm font-medium" style="border-bottom:1.5px solid #C8943A; padding-bottom:2px;">Blog</a>
+    </div>
+    <div class="hidden lg:flex items-center gap-4">
+      <a href="tel:2707258382" class="text-white/70 hover:text-white text-sm transition-colors duration-200">(270) 725-8382</a>
+      <a href="/#contact" class="btn-gold text-sm">Book Appointment</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section style="background:linear-gradient(145deg,#273F30 0%,#1C3626 60%,#162C1E 100%); padding:9rem 1.5rem 5rem; position:relative; overflow:hidden;">
+  <div style="position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(circle,rgba(168,197,181,0.12) 1px,transparent 1px);
+    background-size:32px 32px;
+    -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);
+    mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(200,148,58,0.09) 0%,transparent 65%);"></div>
+  <div class="max-w-3xl mx-auto text-center" style="position:relative;z-index:2;">
+    <p class="text-gold-400 text-xs font-medium tracking-widest uppercase mb-4" style="letter-spacing:0.22em;">Barrow Eye Center · Russellville, KY</p>
+    <h1 class="heading-display text-white mb-5" style="font-size:clamp(2.2rem,5vw,3.5rem);">
+      Eye Care <span class="gold-shimmer">Insights</span>
+    </h1>
+    <p class="text-white/55 body-text" style="font-size:1.0625rem; max-width:520px; margin:0 auto; line-height:1.75;">
+      Vision health tips, eye care news, and updates from our practice — fresh content every week from our Vision Source network.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ PRACTICE POSTS ═══ -->
+<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:5rem 1.5rem 0;">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center gap-4 mb-8">
+      <div class="gold-rule"></div>
+      <p class="text-gold-500 text-xs font-medium tracking-widest uppercase" style="letter-spacing:0.18em;">From Our Practice</p>
+    </div>
+    <!-- TO ADD A NEW PRACTICE POST: duplicate one <article> block and update content. -->
+    <div class="grid md:grid-cols-2 gap-6 mb-4">
+
+      <article class="practice-post">
+        <p class="text-xs text-gray-400 mb-2" style="letter-spacing:0.08em;">May 2026</p>
+        <h2 class="heading-display text-forest-900 mb-3" style="font-size:1.25rem; font-weight:600;">Welcome to Our New Website</h2>
+        <p class="text-gray-500 text-sm body-text">We've launched a brand-new website to make it easier to learn about our services, meet our team, and book your appointment. Take a look around and let us know what you think!</p>
+        <a href="/#contact" class="inline-flex items-center gap-1 mt-4 text-gold-500 hover:text-gold-600 text-sm font-semibold transition-colors duration-200">Contact Us <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+
+      <article class="practice-post">
+        <p class="text-xs text-gray-400 mb-2" style="letter-spacing:0.08em;">Back to School 2026</p>
+        <h2 class="heading-display text-forest-900 mb-3" style="font-size:1.25rem; font-weight:600;">Back-to-School Eye Exams Are Essential</h2>
+        <p class="text-gray-500 text-sm body-text">80% of learning is visual. Schedule your child's annual eye exam before the school year starts — early detection of vision problems can make all the difference in the classroom.</p>
+        <a href="/#contact" class="inline-flex items-center gap-1 mt-4 text-gold-500 hover:text-gold-600 text-sm font-semibold transition-colors duration-200">Book Now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VISION SOURCE AUTO-FEED ═══ -->
+<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:4rem 1.5rem 6rem;">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+      <div class="flex items-center gap-4">
+        <div class="gold-rule"></div>
+        <p class="text-gold-500 text-xs font-medium tracking-widest uppercase" style="letter-spacing:0.18em;">Latest from Vision Source</p>
+      </div>
+      <img src="https://visionsource.com/site/templates/assets/img/vs-logo.png" alt="Vision Source"
+        style="height:20px; object-fit:contain; opacity:0.55; filter:brightness(0) saturate(100%) invert(40%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(90%);"
+        onerror="this.style.display='none';">
+    </div>
+
+    <div id="vs-grid">
+      <!-- skeleton cards while loading -->
+      <div class="blog-card"><div class="skeleton" style="height:200px;border-radius:0;"></div><div class="blog-card-body" style="gap:.75rem;"><div class="skeleton" style="height:12px;width:55%;margin-bottom:.5rem;"></div><div class="skeleton" style="height:18px;width:90%;margin-bottom:.75rem;"></div><div class="skeleton" style="height:13px;width:100%;margin-bottom:.4rem;"></div><div class="skeleton" style="height:13px;width:75%;"></div></div></div>
+      <div class="blog-card"><div class="skeleton" style="height:200px;border-radius:0;"></div><div class="blog-card-body" style="gap:.75rem;"><div class="skeleton" style="height:12px;width:55%;margin-bottom:.5rem;"></div><div class="skeleton" style="height:18px;width:90%;margin-bottom:.75rem;"></div><div class="skeleton" style="height:13px;width:100%;margin-bottom:.4rem;"></div><div class="skeleton" style="height:13px;width:75%;"></div></div></div>
+      <div class="blog-card"><div class="skeleton" style="height:200px;border-radius:0;"></div><div class="blog-card-body" style="gap:.75rem;"><div class="skeleton" style="height:12px;width:55%;margin-bottom:.5rem;"></div><div class="skeleton" style="height:18px;width:90%;margin-bottom:.75rem;"></div><div class="skeleton" style="height:13px;width:100%;margin-bottom:.4rem;"></div><div class="skeleton" style="height:13px;width:75%;"></div></div></div>
+    </div>
+
+    <p id="vs-error" style="display:none;" class="text-center text-gray-400 text-sm py-8">
+      Unable to load latest articles right now.
+      <a href="https://barroweyecenter-visionsource.com/blog/" target="_blank" rel="noopener" class="text-gold-500 underline">View them directly →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══ CTA STRIP ═══ -->
+<section style="background:linear-gradient(145deg,#273F30 0%,#1C3626 60%,#162C1E 100%); padding:4.5rem 1.5rem;">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="heading-display text-white mb-3" style="font-size:clamp(1.6rem,3vw,2.25rem);">Have Questions About What You Read?</h2>
+    <p class="text-white/55 text-sm body-text mb-8" style="line-height:1.7;">Our team is always happy to help. Give us a call or book your next exam online.</p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="/#contact" class="btn-gold px-8 py-3">Book an Appointment</a>
+      <a href="tel:2707258382" class="btn-outline px-8 py-3">(270) 725-8382</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer style="background:linear-gradient(155deg,#1A3228 0%,#0E1E15 100%); color:rgba(255,255,255,0.45); padding:2.5rem 1.5rem; text-align:center; border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="flex flex-col items-center gap-2">
+    <a href="/" class="flex flex-col items-center leading-none mb-1">
+      <span class="text-white font-bold uppercase" style="font-family:'Inter',sans-serif; font-size:1.15rem; letter-spacing:0.07em;">Barrow Eye Center, PLC</span>
+      <div style="display:flex;align-items:center;gap:7px;margin-top:6px;">
+        <span style="font-size:0.6rem;letter-spacing:0.12em;color:rgba(255,255,255,0.42);text-transform:uppercase;white-space:nowrap;">A Member of</span>
+        <img src="https://visionsource.com/site/templates/assets/img/vs-logo.png" alt="Vision Source" style="display:block;width:104px;height:auto;filter:brightness(0) saturate(100%) invert(72%) sepia(55%) saturate(700%) hue-rotate(5deg) brightness(108%);" onerror="this.style.display='none';"/>
+      </div>
+    </a>
+    <p class="text-xs mt-2" style="color:rgba(255,255,255,0.28);">© 2026 Barrow Eye Center, PLC · 102 Armory Dr., Russellville, KY 42276</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ARTICLE READER OVERLAY
+     Slides up from the bottom when a "Read More" card is clicked.
+     Displays the full article content from the RSS feed.
+═══════════════════════════════════════════════════════════ -->
+<div id="article-reader" role="dialog" aria-modal="true" aria-label="Article reader">
+  <div id="reader-panel">
+    <!-- Top bar -->
+    <div id="reader-topbar">
+      <button id="reader-back-btn" onclick="closeReader()" aria-label="Back to blog">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to Blog
+      </button>
+      <a id="reader-original-link" href="#" target="_blank" rel="noopener" style="font-size:0.8rem;">
+        View on Vision Source
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+
+    <!-- Scrollable content -->
+    <div id="reader-scroll">
+      <img id="reader-hero-img" src="" alt="" style="display:none;">
+      <div id="reader-hero-placeholder" style="display:none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(168,197,181,0.4)" stroke-width="1" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
+      </div>
+      <div id="reader-header">
+        <span id="reader-tag" class="blog-card-tag"></span>
+        <h2 id="reader-title"></h2>
+        <p id="reader-date"></p>
+      </div>
+      <div id="reader-body">
+        <div id="reader-content" class="reader-content"></div>
+        <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid #EBE5DD;">
+          <a id="reader-source-link" href="#" target="_blank" rel="noopener"
+            style="display:inline-flex;align-items:center;gap:0.5rem;color:#9CA3AF;font-size:0.8rem;text-underline-offset:3px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Originally published on Vision Source
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Nav scroll
+  const nb = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nb.classList.toggle('scrolled', scrollY > 40), { passive:true });
+
+  // ── Article reader state ─────────────────────────────────
+  const reader    = document.getElementById('article-reader');
+  const panel     = document.getElementById('reader-panel');
+  const heroImg   = document.getElementById('reader-hero-img');
+  const heroPlac  = document.getElementById('reader-hero-placeholder');
+  const readerTag = document.getElementById('reader-tag');
+  const readerTitle = document.getElementById('reader-title');
+  const readerDate  = document.getElementById('reader-date');
+  const readerContent = document.getElementById('reader-content');
+  const readerOrigLink = document.getElementById('reader-original-link');
+  const readerSrcLink  = document.getElementById('reader-source-link');
+  const readerScroll   = document.getElementById('reader-scroll');
+
+  function openReader(article) {
+    // Populate
+    readerTag.textContent  = article.cat;
+    readerTitle.textContent = article.title;
+    readerDate.textContent  = article.date;
+    readerOrigLink.href    = article.link;
+    readerSrcLink.href     = article.link;
+
+    // Hero image
+    if (article.img) {
+      heroImg.src = article.img;
+      heroImg.alt = article.title;
+      heroImg.style.display = 'block';
+      heroPlac.style.display = 'none';
+      heroImg.onerror = () => { heroImg.style.display='none'; heroPlac.style.display='flex'; };
+    } else {
+      heroImg.style.display  = 'none';
+      heroPlac.style.display = 'flex';
+    }
+
+    // Sanitize and inject content
+    readerContent.innerHTML = sanitizeHtml(article.content, 'https://barroweyecenter-visionsource.com');
+
+    // Open overlay
+    readerScroll.scrollTop = 0;
+    reader.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Focus trap seed
+    panel.focus && panel.setAttribute('tabindex', '-1');
+  }
+
+  function closeReader() {
+    reader.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Close on backdrop click
+  reader.addEventListener('click', e => { if (e.target === reader) closeReader(); });
+
+  // Close on ESC
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReader(); });
+
+  // Sanitize HTML: remove scripts/iframes, make images absolute
+  function sanitizeHtml(html, base) {
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    // Remove dangerous elements
+    div.querySelectorAll('script,iframe,style,noscript,[onclick],[onload],[onerror]').forEach(el => el.remove());
+    // Fix image URLs
+    div.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src') || '';
+      if (src && !src.startsWith('http') && !src.startsWith('data:')) {
+        img.src = base + (src.startsWith('/') ? src : '/' + src);
+      }
+      img.style.maxWidth = '100%';
+      img.style.height = 'auto';
+      img.loading = 'lazy';
+    });
+    // Open all links externally
+    div.querySelectorAll('a').forEach(a => {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    });
+    // Remove empty paragraphs and excessive whitespace paragraphs
+    div.querySelectorAll('p').forEach(p => {
+      if (!p.textContent.trim() && !p.querySelector('img')) p.remove();
+    });
+    return div.innerHTML;
+  }
+
+  // ── Fetch VS RSS feed ────────────────────────────────────
+  (async () => {
+    const FEED  = 'https://barroweyecenter-visionsource.com/feed/';
+    const grid  = document.getElementById('vs-grid');
+    const errEl = document.getElementById('vs-error');
+
+    const BASE    = 'https://barroweyecenter-visionsource.com';
+    const fmtDate = s => { try { return new Date(s).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}); } catch{return '';} };
+    const getText = (el, tag) => el.querySelector(tag)?.textContent?.trim() || '';
+    const stripHtml = h => { const d = document.createElement('div'); d.innerHTML = h; return (d.textContent||'').trim().replace(/\s+/g,' ').slice(0,155) + '…'; };
+    const absUrl  = src => src.startsWith('http') ? src : BASE + (src.startsWith('/') ? src : '/' + src);
+
+    try {
+      const res  = await fetch(FEED);
+      const text = await res.text();
+      const xml  = new DOMParser().parseFromString(text, 'text/xml');
+      const items = [...xml.querySelectorAll('item')].slice(0, 9);
+      if (!items.length) throw 0;
+
+      // Build article data array
+      const articles = items.map(item => {
+        const title   = getText(item, 'title');
+        const link    = getText(item, 'link') || item.querySelector('link')?.nextSibling?.textContent?.trim() || '#';
+        const date    = fmtDate(getText(item, 'pubDate'));
+        const encoded = item.getElementsByTagNameNS('http://purl.org/rss/1.0/modules/content/', 'encoded')[0]?.textContent || '';
+        const desc    = getText(item, 'description');
+        const excerpt = stripHtml(desc || encoded);
+        const imgMatch = encoded.match(/<img[^>]+src=["']([^"']+)["']/i);
+        const img     = imgMatch ? absUrl(imgMatch[1])
+                      : item.querySelector('enclosure')?.getAttribute('url') || '';
+        const cats    = [...item.querySelectorAll('category')].map(c=>c.textContent.trim()).filter(c=>c&&c.length<35);
+        const cat     = cats[0] || 'Eye Care';
+        // Full article content (content:encoded, fall back to description)
+        const content = encoded || desc || '<p>Read the full article on Vision Source.</p>';
+        return { title, link, date, excerpt, img, cat, content };
+      });
+
+      grid.innerHTML = articles.map((article, i) => `
+        <article class="blog-card">
+          ${article.img
+            ? `<img class="blog-card-img" src="${article.img}" alt="${article.title.replace(/"/g,'&quot;')}" loading="lazy" onerror="this.nextElementSibling.style.display='flex';this.remove();">`
+            : ''}
+          <div class="blog-card-img-placeholder" style="display:${article.img?'none':'flex'};">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(168,197,181,0.45)" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-card-tag">${article.cat}</span>
+            <h2 class="blog-card-title">${article.title}</h2>
+            <p class="blog-card-excerpt">${article.excerpt}</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-date">${article.date}</span>
+              <button class="blog-card-link" onclick="vsOpenArticle(${i})" aria-label="Read ${article.title.replace(/"/g,'&quot;')}">
+                Read More
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>`).join('');
+
+      // Expose articles to the reader
+      window._vsArticles = articles;
+
+    } catch(_) {
+      grid.innerHTML = '';
+      errEl.style.display = 'block';
+    }
+  })();
+
+  function vsOpenArticle(i) {
+    const a = window._vsArticles && window._vsArticles[i];
+    if (a) openReader(a);
+  }
+</script>
+</body>
+</html>
