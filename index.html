@@ -81,7 +81,8 @@
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: auto; }
+    @media (prefers-reduced-motion: no-preference) { a[href^="#"] { scroll-behavior: smooth; } }
     body { font-family: 'Inter', system-ui, sans-serif; background: #ADADAD; color: #1A1A1A; }
 
     #navbar { transition: background 0.5s cubic-bezier(.4,0,.2,1), box-shadow 0.5s cubic-bezier(.4,0,.2,1); }
@@ -261,10 +262,8 @@
       <div class="flex justify-center lg:justify-end items-center order-1 lg:order-2 pt-20 lg:pt-0">
         <div class="hero-portrait-wrap">
           <div class="hero-portrait-inner">
-            <video id="hero-vid" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center center;">
-              <source src="/brand_assets/MVI_0049.MP4" type="video/mp4">
-            </video>
-            <div id="hero-vid-fade" style="position:absolute;inset:0;background:#091410;opacity:0;pointer-events:none;border-radius:1.5rem;transition:opacity 0.05s linear;"></div>
+            <img src="https://barroweyecenter-visionsource.com/wp-content/uploads/sites/1187/2022/03/Dr.-Barrow.jpg" alt="Dr. Darla S. Barrow, O.D." style="width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.src='https://placehold.co/520x640/1C3329/ffffff?text=Dr.+Barrow'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,30,18,0.55) 0%,transparent 45%);border-radius:1.5rem;pointer-events:none;"></div>
           </div>
         </div>
       </div>
@@ -521,19 +520,6 @@
     btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
   });
 
-  const heroVid = document.getElementById('hero-vid');
-  const heroFade = document.getElementById('hero-vid-fade');
-  if (heroVid && heroFade) {
-    const FADE_OUT = 3.0, FADE_IN = 0.8;
-    heroVid.addEventListener('timeupdate', () => {
-      const t = heroVid.currentTime, d = heroVid.duration;
-      if (!d) return;
-      const remaining = d - t;
-      if (remaining < FADE_OUT) heroFade.style.opacity = 1 - (remaining / FADE_OUT);
-      else if (t < FADE_IN) heroFade.style.opacity = 1 - (t / FADE_IN);
-      else heroFade.style.opacity = 0;
-    });
-  }
 </script>
 </body>
 </html>

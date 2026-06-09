@@ -31,7 +31,8 @@
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: auto; }
+    @media (prefers-reduced-motion: no-preference) { a[href^="#"] { scroll-behavior: smooth; } }
     body { font-family:'Inter',system-ui,sans-serif; background:#ADADAD; color:#1A1A1A; }
 
     #navbar { transition:background 0.5s cubic-bezier(.4,0,.2,1),box-shadow 0.5s cubic-bezier(.4,0,.2,1); }
