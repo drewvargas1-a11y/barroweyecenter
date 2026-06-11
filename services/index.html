@@ -55,19 +55,19 @@
     .btn-forest:focus-visible{outline:3px solid #A8C5B5;outline-offset:2px;}
     .gold-rule{height:3px;background:#C8943A;border-radius:2px;margin:1rem 0 1.5rem;width:48px;transform-origin:left;transition:transform 0.6s cubic-bezier(.34,1.2,.64,1);}
     .gold-rule.rule-hidden{transform:scaleX(0);}.gold-rule.rule-shown{transform:scaleX(1);}
-    .service-card{position:relative;overflow:hidden;transition:transform 0.25s cubic-bezier(.4,0,.2,1),box-shadow 0.25s;}
+    .service-card{position:relative;overflow:hidden;transition:transform 0.25s cubic-bezier(.4,0,.2,1);transform:translateZ(0)}
     .service-card::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:3px;background:rgba(255,255,255,0.70);border-radius:0 2px 2px 0;transform:scaleY(0);transform-origin:center;transition:transform 0.35s cubic-bezier(.34,1.56,.64,1);}
-    .service-card:hover{transform:translateY(-5px);filter:brightness(1.20);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 20px 56px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.50);}
+    .service-card:hover{transform:translateY(-5px) translateZ(0);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 20px 56px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.50);}
     .service-card:hover::before{transform:scaleY(1);}
     .icon-box{transition:transform 0.28s cubic-bezier(.34,1.56,.64,1),background 0.25s;}
     .service-card:hover .icon-box{transform:translateY(-3px) scale(1.1);}
     .ins-chip{transition:border-color 0.2s,color 0.2s,background 0.2s,transform 0.2s cubic-bezier(.34,1.56,.64,1);}
     .ins-chip:hover{border-color:#C8943A;color:#1C3329;background:#F7EDDB;transform:translateY(-2px);}
-    .patient-card{transition:box-shadow 0.25s,transform 0.25s cubic-bezier(.4,0,.2,1);}
-    .patient-card:hover{transform:translateY(-4px);filter:brightness(1.20);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 16px 48px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.50);}
-    .team-card{background:linear-gradient(-45deg,#1F3D2E,#2A5040,#3A6A52,#4A8A6A,#3A6A52,#2A5040,#1F3D2E);background-size:400% 400%;animation:card-flow 11s ease infinite;animation-play-state:paused;border-radius:1rem;overflow:hidden;border:1.5px solid rgba(168,195,176,0.25);box-shadow:0 2px 12px rgba(20,43,32,0.30),0 8px 32px rgba(20,43,32,0.20);transition:transform 0.28s cubic-bezier(.4,0,.2,1),box-shadow 0.28s,border-color 0.28s,filter 0.28s;}
+    .patient-card{transition:box-shadow 0.25s,transform 0.25s cubic-bezier(.4,0,.2,1);transform:translateZ(0)}
+    .patient-card:hover{transform:translateY(-4px) translateZ(0);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 16px 48px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.50);}
+    .team-card{background:linear-gradient(-45deg,#1F3D2E,#2A5040,#3A6A52,#4A8A6A,#3A6A52,#2A5040,#1F3D2E);background-size:400% 400%;animation:card-flow 11s ease infinite;animation-play-state:paused;border-radius:1rem;overflow:hidden;border:1.5px solid rgba(168,195,176,0.25);box-shadow:0 2px 12px rgba(20,43,32,0.30),0 8px 32px rgba(20,43,32,0.20);transition:transform 0.28s cubic-bezier(.4,0,.2,1),border-color 0.28s;transform:translateZ(0)}
     .team-card img{transition:transform 0.4s cubic-bezier(.4,0,.2,1);}
-    .team-card:hover{transform:translateY(-5px);filter:brightness(1.20);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 20px 48px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.45);}.team-card>p{padding-left:0.875rem;padding-right:0.875rem;}.team-card>p:first-of-type{padding-top:0.625rem;}.team-card>p:last-of-type{padding-bottom:0.875rem;}.team-card p[style*="color:#1F3D2E"]{color:rgba(255,255,255,0.95) !important;}.team-card p.text-gray-400{color:rgba(255,255,255,0.62) !important;}
+    .team-card:hover{transform:translateY(-5px) translateZ(0);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 20px 48px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.45);}.team-card>p{padding-left:0.875rem;padding-right:0.875rem;}.team-card>p:first-of-type{padding-top:0.625rem;}.team-card>p:last-of-type{padding-bottom:0.875rem;}.team-card p[style*="color:#1F3D2E"]{color:rgba(255,255,255,0.95) !important;}.team-card p.text-gray-400{color:rgba(255,255,255,0.62) !important;}
     .team-card:hover img{transform:scale(1.06);}
     .fade-in{transition:opacity 0.7s cubic-bezier(.22,1,.36,1),transform 0.7s cubic-bezier(.22,1,.36,1);}
     .fade-in.will-animate{opacity:0;transform:translateY(24px);}.fade-in.visible{opacity:1;transform:translateY(0);}

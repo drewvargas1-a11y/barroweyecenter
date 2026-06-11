@@ -57,8 +57,8 @@
     .gold-rule.rule-hidden{transform:scaleX(0);}.gold-rule.rule-shown{transform:scaleX(1);}
     .ins-chip{transition:border-color 0.2s,color 0.2s,background 0.2s,transform 0.2s cubic-bezier(.34,1.56,.64,1);}
     .ins-chip:hover{border-color:#C8943A;color:#1C3329;background:#F7EDDB;transform:translateY(-2px);}
-    .patient-card{transition:box-shadow 0.25s,transform 0.25s cubic-bezier(.4,0,.2,1);}
-    .patient-card:hover{transform:translateY(-4px);filter:brightness(1.20);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 16px 48px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.50);}
+    .patient-card{transition:box-shadow 0.25s,transform 0.25s cubic-bezier(.4,0,.2,1);transform:translateZ(0)}
+    .patient-card:hover{transform:translateY(-4px) translateZ(0);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 16px 48px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.50);}
     .patient-card:hover .patient-card-title{color:#A87830;}
     .patient-icon-box{transition:transform 0.28s cubic-bezier(.34,1.56,.64,1);}
     .patient-card:hover .patient-icon-box{transform:translateY(-3px) scale(1.1);}
@@ -66,8 +66,8 @@
     .fade-in.will-animate{opacity:0;transform:translateY(24px);}.fade-in.visible{opacity:1;transform:translateY(0);}
     @keyframes shimmer{0%{background-position:-300% center}100%{background-position:300% center}}
     .gold-shimmer{display:inline-block;padding-right:0.08em;background:linear-gradient(105deg,#A87830 0%,#C8943A 25%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 75%,#A87830 100%);background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite;font-style:italic;}
-    .tip-card{background:#fff;border-radius:0.75rem;padding:1.75rem;border-left:3px solid #C8943A;box-shadow:0 2px 8px rgba(28,51,41,0.06),0 6px 24px rgba(28,51,41,0.07);transition:transform 0.25s cubic-bezier(.4,0,.2,1),box-shadow 0.25s;}
-    .tip-card:hover{transform:translateY(-3px);box-shadow:0 8px 36px rgba(28,51,41,0.12);}
+    .tip-card{background:#fff;border-radius:0.75rem;padding:1.75rem;border-left:3px solid #C8943A;box-shadow:0 2px 8px rgba(28,51,41,0.06),0 6px 24px rgba(28,51,41,0.07);transition:transform 0.25s cubic-bezier(.4,0,.2,1);}
+    .tip-card:hover{transform:translateY(-3px) translateZ(0);box-shadow:0 8px 36px rgba(28,51,41,0.12);}
       /* dark-section */
     .dark-section{color:rgba(255,255,255,0.85);}.dark-section h1,.dark-section h2,.dark-section h3,.dark-section h4{color:rgba(255,255,255,0.95) !important;}.dark-section .text-forest-900,.dark-section .text-forest-800,.dark-section .text-forest-700{color:rgba(255,255,255,0.95) !important;}.dark-section .text-gray-400,.dark-section .text-gray-500,.dark-section .text-gray-600{color:rgba(255,255,255,0.68) !important;}.dark-section *[style*="color:#1F3D2E"],.dark-section *[style*="color:#1C3329"]{color:rgba(255,255,255,0.95) !important;}.dark-section .ins-chip{color:rgba(255,255,255,0.80) !important;border-color:rgba(255,255,255,0.22) !important;}.dark-section .ins-chip:hover{background:rgba(255,255,255,0.10) !important;color:#fff !important;border-color:rgba(255,255,255,0.50) !important;}.dark-section .tip-card{background:rgba(255,255,255,0.07) !important;border-left-color:rgba(200,148,58,0.65) !important;box-shadow:0 2px 12px rgba(0,0,0,0.25) !important;}.dark-section .tip-card h3{color:rgba(255,255,255,0.95) !important;}.dark-section .tip-card svg{filter:brightness(0) invert(1);}.dark-section .tip-card .w-10{background:rgba(255,255,255,0.10) !important;}
       /* card-glow */
