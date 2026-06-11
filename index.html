@@ -96,12 +96,10 @@
     .grain::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E"); opacity: 0.7; }
     .hero-dots { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, rgba(168,197,181,0.2) 1px, transparent 1px); background-size: 36px 36px; -webkit-mask-image: radial-gradient(ellipse 55% 55% at 80% 15%, black 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 15% 85%, black 0%, transparent 70%); mask-image: radial-gradient(ellipse 55% 55% at 80% 15%, black 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 15% 85%, black 0%, transparent 70%); -webkit-mask-composite: source-over; mask-composite: add; animation: dots-breathe 14s ease-in-out infinite; }
     @keyframes dots-breathe { 0%,100%{opacity:.55} 50%{opacity:1} }
-    .hero-bloom-teal { position: absolute; top: -30%; left: -10%; width: 800px; height: 800px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(35,75,55,0.85) 0%, transparent 65%); animation: bloom-breathe 16s ease-in-out infinite; will-change: transform, opacity; }
-    .hero-bloom-gold { position: absolute; top: 50%; right: 18%; transform: translateY(-50%); width: 720px; height: 720px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(200,148,58,0.22) 0%, rgba(200,148,58,0.08) 38%, transparent 65%); animation: bloom-breathe-gold 8s ease-in-out infinite 2s; will-change: transform, opacity; }
+    .hero-bloom-teal { position: absolute; top: -30%; left: -10%; width: 800px; height: 800px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(35,75,55,0.85) 0%, transparent 65%); animation: bloom-breathe 16s ease-in-out infinite; }
+    .hero-bloom-gold { position: absolute; top: 50%; right: 18%; transform: translateY(-50%); width: 720px; height: 720px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(200,148,58,0.22) 0%, rgba(200,148,58,0.08) 38%, transparent 65%); animation: bloom-breathe-gold 8s ease-in-out infinite 2s; }
     @keyframes bloom-breathe { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.7;transform:scale(1.08)} }
     @keyframes bloom-breathe-gold { 0%,100%{opacity:1;transform:translateY(-50%) scale(1)} 50%{opacity:.7;transform:translateY(-50%) scale(1.1)} }
-    .hero-rays { position: absolute; right: 22%; top: 50%; width: 160vh; height: 160vh; transform: translate(50%, -50%); border-radius: 50%; pointer-events: none; background: conic-gradient(from 0deg at 50% 50%,transparent 0deg,rgba(200,148,58,0.045) 4deg,transparent 9deg,transparent 28deg,rgba(200,148,58,0.03) 32deg,transparent 37deg,transparent 58deg,rgba(200,148,58,0.04) 62deg,transparent 67deg,transparent 88deg,rgba(200,148,58,0.03) 92deg,transparent 97deg,transparent 118deg,rgba(200,148,58,0.04) 122deg,transparent 127deg,transparent 148deg,rgba(200,148,58,0.03) 152deg,transparent 157deg,transparent 178deg,rgba(200,148,58,0.045) 182deg,transparent 187deg,transparent 208deg,rgba(200,148,58,0.03) 212deg,transparent 217deg,transparent 238deg,rgba(200,148,58,0.04) 242deg,transparent 247deg,transparent 268deg,rgba(200,148,58,0.03) 272deg,transparent 277deg,transparent 298deg,rgba(200,148,58,0.04) 302deg,transparent 307deg,transparent 328deg,rgba(200,148,58,0.03) 332deg,transparent 337deg,transparent 360deg); animation: rays-spin 80s linear infinite; will-change: transform; }
-    @keyframes rays-spin { from{transform:translate(50%,-50%) rotate(0deg)} to{transform:translate(50%,-50%) rotate(360deg)} }
     .hero-bg-year { position: absolute; right: -1%; bottom: -12%; font-family: 'Playfair Display', serif; font-size: clamp(160px,19vw,260px); font-weight: 700; letter-spacing: -0.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(200,148,58,0.07); user-select: none; pointer-events: none; animation: year-breathe 12s ease-in-out infinite; }
     @keyframes year-breathe { 0%,100%{opacity:1} 50%{opacity:.6} }
     .hero-portrait-wrap { position: relative; z-index: 6; width: clamp(260px,28vw,400px); aspect-ratio: 3/4; }
@@ -153,7 +151,7 @@
     .award-badge { animation: ring-pulse 2.8s ease-out infinite; }
     @keyframes float-slow { 0%,100%{transform:translateY(0) rotate(0deg)} 40%{transform:translateY(-14px) rotate(4deg)} 70%{transform:translateY(6px) rotate(-2deg)} }
     @keyframes core-pulse { 0%,100%{opacity:.85;box-shadow:0 0 20px rgba(200,148,58,.7),0 0 48px rgba(200,148,58,.2) inset} 50%{opacity:1;box-shadow:0 0 36px rgba(200,148,58,1),0 0 80px rgba(200,148,58,.4) inset} }
-    .bokeh { position: absolute; border-radius: 50%; pointer-events: none; background: #C8943A; will-change: transform, opacity; }
+    .bokeh { position: absolute; border-radius: 50%; pointer-events: none; background: #C8943A; }
     .bk1{width:5px;height:5px;top:18%;left:8%;opacity:.55;filter:blur(1px);animation:float-slow 9s ease-in-out infinite}
     .bk2{width:3px;height:3px;top:72%;left:5%;opacity:.4;filter:blur(.5px);animation:float-slow 13s ease-in-out infinite 2s}
     .bk3{width:8px;height:8px;top:32%;left:82%;opacity:.18;filter:blur(3px);animation:float-slow 11s ease-in-out infinite 4s}
@@ -220,7 +218,6 @@
   <div class="hero-dots"></div>
   <div class="hero-bloom-teal"></div>
   <div class="hero-bloom-gold"></div>
-  <div class="hero-rays"></div>
   <div class="hero-bg-year">1998</div>
   <div class="bokeh bk1"></div><div class="bokeh bk2"></div><div class="bokeh bk3"></div>
   <div class="bokeh bk4"></div><div class="bokeh bk5"></div><div class="bokeh bk6"></div>
@@ -310,7 +307,7 @@
 </section>
 
 <!-- ═══ SERVICES PREVIEW ═══ -->
-<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:5rem 1.5rem;">
+<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:5rem 1.5rem; content-visibility:auto; contain-intrinsic-size:0 600px;">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12 fade-in">
       <p class="text-gold-500 text-xs tracking-widest uppercase mb-3" style="letter-spacing:0.18em;">What We Offer</p>
@@ -350,7 +347,7 @@
 </section>
 
 <!-- ═══ ABOUT TEASER ═══ -->
-<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:5rem 1.5rem;">
+<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:5rem 1.5rem; content-visibility:auto; contain-intrinsic-size:0 500px;">
   <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
     <div class="relative fade-in">
       <div class="absolute -top-4 -left-4 w-full h-full rounded-2xl" style="background:#E3EEE9; z-index:0;"></div>
@@ -423,7 +420,7 @@
 </section>
 
 <!-- ═══ PRACTICE GALLERY ═══ -->
-<section style="background:#212121; padding:4.5rem 1.5rem;">
+<section style="background:#212121; padding:4.5rem 1.5rem; content-visibility:auto; contain-intrinsic-size:0 500px;">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-10 fade-in">
       <p class="text-gold-500 text-xs tracking-widest uppercase mb-3" style="letter-spacing:0.18em;">Our Practice</p>
@@ -550,6 +547,15 @@
     btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
   });
 
+  // Pause card-flow & shimmer animations when off-screen
+  const animPause = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      e.target.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+    });
+  }, { rootMargin: '100px' });
+  document.querySelectorAll('.card-shadow, .tech-card, .team-card, .blog-card, .patient-card').forEach(el => {
+    animPause.observe(el);
+  });
 </script>
 </body>
 </html>
