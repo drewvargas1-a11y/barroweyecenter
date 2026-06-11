@@ -36,7 +36,8 @@
     body { font-family:'Inter',system-ui,sans-serif; background:#ADADAD; color:#1A1A1A; }
 
     #navbar { transition:background 0.5s cubic-bezier(.4,0,.2,1),box-shadow 0.5s cubic-bezier(.4,0,.2,1); }
-    #navbar.scrolled { background:rgba(31,61,46,0.96); backdrop-filter:blur(16px); box-shadow:0 2px 32px rgba(20,43,32,0.28); }
+    #navbar.scrolled-bg { background:rgba(31,61,46,0.96); box-shadow:0 2px 32px rgba(20,43,32,0.28); }
+    #navbar.scrolled { backdrop-filter:blur(16px); }
     .nav-link { position:relative; }
     .nav-link::after { content:''; position:absolute; bottom:-3px; left:0; right:0; height:1.5px; background:#C8943A; transform:scaleX(0); transform-origin:left; transition:transform 0.28s cubic-bezier(.4,0,.2,1); }
     .nav-link:hover::after { transform:scaleX(1); }
@@ -248,7 +249,7 @@
 </section>
 
 <!-- ═══ PRACTICE POSTS ═══ -->
-<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:5rem 1.5rem 0;">
+<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:5rem 1.5rem 0; content-visibility:auto; contain-intrinsic-size:0 600px;">
   <div class="max-w-6xl mx-auto">
     <div class="flex items-center gap-4 mb-8">
       <div class="gold-rule"></div>
@@ -276,7 +277,7 @@
 </section>
 
 <!-- ═══ VISION SOURCE AUTO-FEED ═══ -->
-<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:4rem 1.5rem 6rem;">
+<section class="dark-section" style="background:linear-gradient(155deg,#2C2C2C 0%,#212121 100%); padding:4rem 1.5rem 6rem; content-visibility:auto; contain-intrinsic-size:0 600px;">
   <div class="max-w-6xl mx-auto">
     <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
       <div class="flex items-center gap-4">
@@ -375,7 +376,12 @@
 <script>
   // Nav scroll
   const nb = document.getElementById('navbar');
-  window.addEventListener('scroll', () => nb.classList.toggle('scrolled', scrollY > 40), { passive:true });
+  let nbTimer;
+  window.addEventListener('scroll', () => {
+    if (scrollY > 40) nb.classList.add('scrolled-bg'); else nb.classList.remove('scrolled','scrolled-bg');
+    clearTimeout(nbTimer);
+    nbTimer = setTimeout(() => { if (scrollY > 40) nb.classList.add('scrolled'); }, 150);
+  }, { passive:true });
 
   // ── Article reader state ─────────────────────────────────
   const reader    = document.getElementById('article-reader');
@@ -533,6 +539,12 @@
     const a = window._vsArticles && window._vsArticles[i];
     if (a) openReader(a);
   }
+
+  // Pause card animations when off-screen
+  const animPause = new IntersectionObserver(entries => {
+    entries.forEach(e => { e.target.style.animationPlayState = e.isIntersecting ? 'running' : 'paused'; });
+  }, { rootMargin: '100px' });
+  document.querySelectorAll('.card-shadow,.tech-card,.team-card,.blog-card,.patient-card').forEach(el => animPause.observe(el));
 </script>
 </body>
 </html>
