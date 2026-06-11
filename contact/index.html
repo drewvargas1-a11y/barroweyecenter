@@ -266,11 +266,7 @@
     setTimeout(()=>{document.getElementById('appt-form').style.display='none'; document.getElementById('form-success').style.display='block';},800);
   }
 
-  // Pause card animations when off-screen
-  const animPause = new IntersectionObserver(entries => {
-    entries.forEach(e => { e.target.style.animationPlayState = e.isIntersecting ? 'running' : 'paused'; });
-  }, { rootMargin: '100px' });
-  document.querySelectorAll('.card-shadow,.tech-card,.team-card,.blog-card,.patient-card').forEach(el => animPause.observe(el));
+  // Card animations are paused by default; CSS :hover triggers them
 </script>
 </body>
 </html>

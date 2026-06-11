@@ -287,11 +287,7 @@
   document.querySelectorAll('.gold-rule').forEach(el=>{el.classList.add('rule-hidden');const ro=new IntersectionObserver(([e])=>{if(e.isIntersecting){el.classList.remove('rule-hidden');el.classList.add('rule-shown');ro.disconnect();}},{threshold:0.5});ro.observe(el);});
   document.querySelectorAll('.btn-gold,.btn-forest').forEach(btn=>{btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.18}px) translateY(-2px)`;});btn.addEventListener('mouseleave',()=>{btn.style.transform='';});});
 
-  // Pause card animations when off-screen
-  const animPause = new IntersectionObserver(entries => {
-    entries.forEach(e => { e.target.style.animationPlayState = e.isIntersecting ? 'running' : 'paused'; });
-  }, { rootMargin: '100px' });
-  document.querySelectorAll('.card-shadow,.tech-card,.team-card,.blog-card,.patient-card').forEach(el => animPause.observe(el));
+  // Card animations are paused by default; CSS :hover triggers them
 </script>
 </body>
 </html>
