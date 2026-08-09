@@ -46,7 +46,7 @@
     .nav-link:hover::after{transform:scaleX(1);}
     .heading-display{font-family:'Playfair Display',Georgia,serif;letter-spacing:-0.03em;line-height:1.1;}
     .body-text{line-height:1.7;}
-    @keyframes card-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}.card-shadow{background:linear-gradient(-45deg,#1F3D2E,#2A5040,#3A6A52,#4A8A6A,#3A6A52,#2A5040,#1F3D2E) !important;background-size:400% 400% !important;animation:card-flow 9s ease infinite;animation-play-state:paused;border:1.5px solid rgba(168,195,176,0.28);box-shadow:0 2px 16px rgba(20,43,32,0.32),0 8px 40px rgba(20,43,32,0.22);color:rgba(255,255,255,0.92) !important;}.card-shadow .text-gray-400,.card-shadow .text-gray-500,.card-shadow .text-gray-600,.service-card .text-gray-500,.service-card .text-gray-600,.patient-card .text-gray-400,.patient-card .text-gray-500{color:rgba(255,255,255,0.70) !important;}.card-shadow *[style*="color:#1F3D2E"],.card-shadow *[style*="color:#1C3329"],.service-card *[style*="color:#1F3D2E"],.patient-card *[style*="color:#1F3D2E"],.team-card *[style*="color:#1F3D2E"],.blog-card *[style*="color:#1F3D2E"]{color:rgba(255,255,255,0.95) !important;}.card-shadow .text-forest-900,.card-shadow .text-forest-800,.card-shadow .text-forest-700,.service-card .text-forest-900,.service-card .text-forest-800,.patient-card .text-forest-900,.team-card .text-forest-900{color:rgba(255,255,255,0.95) !important;}.patient-card-title{color:rgba(255,255,255,0.95) !important;}.card-shadow svg:not(.no-invert),.service-card svg:not(.no-invert),.patient-card svg:not(.no-invert),.team-card svg:not(.no-invert){filter:brightness(0) invert(1);}.icon-box{background:rgba(255,255,255,0.12) !important;}.icon-box svg{filter:brightness(0) invert(1);}.patient-icon-box{background:rgba(255,255,255,0.12) !important;}.patient-icon-box svg{filter:brightness(0) invert(1);}
+    @keyframes card-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}.card-shadow{background:linear-gradient(-45deg,#1F3D2E,#2A5040,#3A6A52,#4A8A6A,#3A6A52,#2A5040,#1F3D2E) !important;background-size:400% 400% !important;animation:card-flow 9s ease infinite;animation-play-state:paused;border:1.5px solid rgba(168,195,176,0.28);box-shadow:0 2px 16px rgba(20,43,32,0.32),0 8px 40px rgba(20,43,32,0.22);color:rgba(255,255,255,0.92) !important;}.card-shadow .text-gray-400,.card-shadow .text-gray-500,.card-shadow .text-gray-600,.service-card .text-gray-500,.service-card .text-gray-600,.patient-card .text-gray-400,.patient-card .text-gray-500{color:rgba(255,255,255,0.70) !important;}.card-shadow *[style*="color:#1F3D2E"],.card-shadow *[style*="color:#1C3329"],.service-card *[style*="color:#1F3D2E"],.patient-card *[style*="color:#1F3D2E"],.team-card *[style*="color:#1F3D2E"],.blog-card *[style*="color:#1F3D2E"]{color:rgba(255,255,255,0.95) !important;}.card-shadow .text-forest-900,.card-shadow .text-forest-800,.card-shadow .text-forest-700,.service-card .text-forest-900,.service-card .text-forest-800,.patient-card .text-forest-900,.team-card .text-forest-900{color:rgba(255,255,255,0.95) !important;}.patient-card-title{color:rgba(255,255,255,0.95) !important;}.card-shadow svg:not(.no-invert),.service-card svg:not(.no-invert),.patient-card svg:not(.no-invert),.team-card svg:not(.no-invert){filter:brightness(0) invert(1);}.icon-box{background:rgba(255,255,255,0.12) !important;}.icon-box svg{filter:brightness(0) invert(1);}.patient-icon-box{background:rgba(255,255,255,0.12) !important;}.patient-icon-box svg{filter:brightness(0) invert(1);}.card-shadow.has-photo{background-image:linear-gradient(165deg,rgba(18,38,27,0.80) 0%,rgba(10,22,15,0.90) 100%),var(--photo) !important;background-size:cover,cover !important;background-position:center,center !important;background-repeat:no-repeat,no-repeat !important;animation:none !important;}
     .btn-gold{display:inline-block;background:#C8943A;color:#fff;font-weight:500;padding:0.75rem 1.75rem;border-radius:0.375rem;transition:background 0.25s,transform 0.18s cubic-bezier(.34,1.56,.64,1),box-shadow 0.25s;box-shadow:0 2px 12px rgba(200,148,58,0.35);}
     .btn-gold:hover{background:#A87830;transform:translateY(-2px);box-shadow:0 6px 24px rgba(200,148,58,0.45);}
     .btn-gold:focus-visible{outline:3px solid #ECC57A;outline-offset:2px;}
@@ -146,7 +146,7 @@
     <div class="grid md:grid-cols-3 gap-6">
 
       <!-- Card 1: Comprehensive Eye Exams -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow fade-in">
+      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="--photo:url('/brand_assets/candid/waiting-form.jpg');">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E3EEE9;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <ellipse cx="12" cy="12" rx="10" ry="6"/>
@@ -158,7 +158,7 @@
       </div>
 
       <!-- Card 2: Contact Lenses -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow fade-in" style="transition-delay:0.07s;">
+      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.07s;--photo:url('/brand_assets/candid/lab-work.jpg');">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E3EEE9;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"/>
@@ -171,7 +171,7 @@
       </div>
 
       <!-- Card 3: Eyewear & Frames -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow fade-in" style="transition-delay:0.14s;">
+      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.14s;--photo:url('/brand_assets/candid/frames-help.jpg');">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E3EEE9;">
           <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="#1F3D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="1" y="3" width="10" height="10" rx="5"/>
@@ -186,7 +186,7 @@
       </div>
 
       <!-- Card 4: Glaucoma Management -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow fade-in" style="transition-delay:0.05s;">
+      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.05s;--photo:url('/brand_assets/candid/reception-phone.jpg');">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#FDF3E0;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A87830" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
@@ -197,7 +197,7 @@
       </div>
 
       <!-- Card 5: Macular Degeneration -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow fade-in" style="transition-delay:0.12s;">
+      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.12s;--photo:url('/brand_assets/candid/front-desk.jpg');">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#FDF3E0;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A87830" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="8" height="8" rx="1"/>
@@ -211,7 +211,7 @@
       </div>
 
       <!-- Card 6: Diabetic Eye Care -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow fade-in" style="transition-delay:0.19s;">
+      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.19s;--photo:url('/brand_assets/candid/frames-browse.jpg');">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#FDF3E0;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A87830" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
