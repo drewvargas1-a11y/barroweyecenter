@@ -174,15 +174,15 @@
         <h3 class="heading-display text-forest-900 text-xl mb-2" style="font-weight:600;">Schedule an Appointment</h3>
         <p class="text-gray-500 text-sm body-text mb-5">We're accepting new patients. Fill out the form below and we'll get back to you shortly.</p>
         <form id="appt-form" class="space-y-3" onsubmit="handleFormSubmit(event)">
-          <input type="text"  class="form-input" placeholder="Your Name" required autocomplete="name">
-          <input type="tel"   class="form-input" placeholder="Phone Number" autocomplete="tel">
-          <input type="email" class="form-input" placeholder="Email Address" required autocomplete="email">
-          <textarea rows="3"  class="form-input" placeholder="Anything you'd like us to know?" style="resize:none;"></textarea>
+          <input type="text"  name="name"    class="form-input" placeholder="Your Name" required autocomplete="name">
+          <input type="tel"   name="phone"   class="form-input" placeholder="Phone Number" autocomplete="tel">
+          <input type="email" name="email"   class="form-input" placeholder="Email Address" required autocomplete="email">
+          <textarea rows="3"  name="message" class="form-input" placeholder="Anything you'd like us to know?" style="resize:none;"></textarea>
           <button type="submit" class="btn-gold w-full text-sm py-3">Send Request</button>
         </form>
         <div id="form-success" style="display:none;" class="text-center py-6">
-          <p class="text-forest-800 font-semibold mb-1">Thank you!</p>
-          <p class="text-gray-500 text-sm">We'll be in touch soon to confirm your appointment.</p>
+          <p class="text-forest-800 font-semibold mb-1">Almost there!</p>
+          <p class="text-gray-500 text-sm">Your email app should have opened with your request ready to send &mdash; just hit send. If nothing opened, email us directly at <a href="mailto:jon@barroweyecenter.com" class="hover:text-gold-500 transition-colors duration-200" style="color:#C8943A;">jon@barroweyecenter.com</a> or call (270) 725-8382.</p>
         </div>
       </div>
     </div>
@@ -261,9 +261,27 @@
   document.querySelectorAll('.btn-gold').forEach(btn=>{btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.18}px) translateY(-2px)`;});btn.addEventListener('mouseleave',()=>{btn.style.transform='';});});
   function handleFormSubmit(e) {
     e.preventDefault();
-    const btn=e.target.querySelector('button[type="submit"]');
-    btn.textContent='Sending…'; btn.disabled=true;
-    setTimeout(()=>{document.getElementById('appt-form').style.display='none'; document.getElementById('form-success').style.display='block';},800);
+    const form = e.target;
+    const name = form.querySelector('[name="name"]').value.trim();
+    const phone = form.querySelector('[name="phone"]').value.trim();
+    const email = form.querySelector('[name="email"]').value.trim();
+    const message = form.querySelector('[name="message"]').value.trim();
+
+    const subject = `Appointment Request from ${name}`;
+    const body = [
+      `Name: ${name}`,
+      `Phone: ${phone || 'Not provided'}`,
+      `Email: ${email}`,
+      '',
+      'Message:',
+      message || '(none)'
+    ].join('\n');
+    const mailtoUrl = `mailto:jon@barroweyecenter.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    const btn=form.querySelector('button[type="submit"]');
+    btn.textContent='Opening email…'; btn.disabled=true;
+    window.location.href = mailtoUrl;
+    setTimeout(()=>{document.getElementById('appt-form').style.display='none'; document.getElementById('form-success').style.display='block';},600);
   }
 
   // Card animations are paused by default; CSS :hover triggers them
