@@ -56,7 +56,7 @@
     .gold-rule{height:3px;background:#C8943A;border-radius:2px;margin:1rem 0 1.5rem;width:48px;transform-origin:left;transition:transform 0.6s cubic-bezier(.34,1.2,.64,1);}
     .gold-rule.rule-hidden{transform:scaleX(0);}.gold-rule.rule-shown{transform:scaleX(1);}
     .ins-chip{transition:border-color 0.2s,color 0.2s,background 0.2s,transform 0.2s cubic-bezier(.34,1.56,.64,1);}
-    .ins-chip:hover{border-color:#C8943A;color:#1C3329;background:#F7EDDB;transform:translateY(-2px);}
+    .ins-chip:hover{border-color:#C8943A;color:#1C3329;background:#F7EDDB;}
     .patient-card{transition:box-shadow 0.25s,transform 0.25s cubic-bezier(.4,0,.2,1);transform:translateZ(0)}
     .patient-card:hover{transform:translateY(-4px) translateZ(0);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 16px 48px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.50);}
     .patient-card:hover .patient-card-title{color:#A87830;}
@@ -67,12 +67,12 @@
     @keyframes shimmer{0%{background-position:-300% center}100%{background-position:300% center}}
     .gold-shimmer{display:inline-block;padding-right:0.08em;background:linear-gradient(105deg,#A87830 0%,#C8943A 25%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 75%,#A87830 100%);background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite;font-style:italic;}
     .tip-card{background:#fff;border-radius:0.75rem;padding:1.75rem;border-left:3px solid #C8943A;box-shadow:0 2px 8px rgba(28,51,41,0.06),0 6px 24px rgba(28,51,41,0.07);transition:transform 0.25s cubic-bezier(.4,0,.2,1);}
-    .tip-card:hover{transform:translateY(-3px) translateZ(0);box-shadow:0 8px 36px rgba(28,51,41,0.12);}
+    .tip-card{cursor:default;}
       /* dark-section */
     .dark-section{color:rgba(255,255,255,0.85);}.dark-section h1,.dark-section h2,.dark-section h3,.dark-section h4{color:rgba(255,255,255,0.95) !important;}.dark-section .text-forest-900,.dark-section .text-forest-800,.dark-section .text-forest-700{color:rgba(255,255,255,0.95) !important;}.dark-section .text-gray-400,.dark-section .text-gray-500,.dark-section .text-gray-600{color:rgba(255,255,255,0.68) !important;}.dark-section *[style*="color:#1F3D2E"],.dark-section *[style*="color:#1C3329"]{color:rgba(255,255,255,0.95) !important;}.dark-section .ins-chip{color:rgba(255,255,255,0.80) !important;border-color:rgba(255,255,255,0.22) !important;}.dark-section .ins-chip:hover{background:rgba(255,255,255,0.10) !important;color:#fff !important;border-color:rgba(255,255,255,0.50) !important;}.dark-section .tip-card{background:rgba(255,255,255,0.07) !important;border-left-color:rgba(200,148,58,0.65) !important;box-shadow:0 2px 12px rgba(0,0,0,0.25) !important;}.dark-section .tip-card h3{color:rgba(255,255,255,0.95) !important;}.dark-section .tip-card svg{filter:brightness(0) invert(1);}.dark-section .tip-card .w-10{background:rgba(255,255,255,0.10) !important;}
       /* card-glow */
     .card-shadow{box-shadow:0 2px 16px rgba(20,43,32,0.32),0 8px 40px rgba(20,43,32,0.22),0 0 70px rgba(200,148,58,0.22),0 0 160px rgba(200,148,58,0.10);}.team-card{box-shadow:0 2px 12px rgba(20,43,32,0.30),0 8px 32px rgba(20,43,32,0.20),0 0 70px rgba(200,148,58,0.20),0 0 150px rgba(200,148,58,0.10);}.tech-card{box-shadow:0 2px 16px rgba(10,28,20,0.50),0 8px 32px rgba(0,0,0,0.35),0 0 70px rgba(200,148,58,0.18),0 0 140px rgba(200,148,58,0.09);}.blog-card{box-shadow:0 4px 20px rgba(20,43,32,0.40),0 0 70px rgba(200,148,58,0.20),0 0 150px rgba(200,148,58,0.10);}.card-shadow h3,.service-card h3,.patient-card h3,.tech-card h3,.tip-card h3{background:linear-gradient(105deg,#B8882A 0%,#C8943A 22%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 78%,#B8882A 100%);background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent !important;animation:shimmer 5s linear infinite;animation-play-state:paused;}.patient-card-title{background:linear-gradient(105deg,#B8882A 0%,#C8943A 22%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 78%,#B8882A 100%) !important;background-size:300% auto !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;animation:shimmer 5s linear infinite !important;animation-play-state:paused !important;}.blog-card-title{background:linear-gradient(105deg,#B8882A 0%,#C8943A 22%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 78%,#B8882A 100%) !important;background-size:300% auto !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;color:transparent !important;animation:shimmer 5s linear infinite !important;animation-play-state:paused !important;}.team-card>p:first-of-type{background:linear-gradient(105deg,#B8882A 0%,#C8943A 22%,#ECC57A 40%,#F5E09A 50%,#ECC57A 60%,#C8943A 78%,#B8882A 100%) !important;background-size:300% auto !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;animation:shimmer 5s linear infinite !important;animation-play-state:paused !important;}
-  .card-shadow:hover,.team-card:hover,.tech-card:hover,.blog-card:hover,.patient-card:hover{animation-play-state:running !important;}.card-shadow:hover h3,.service-card:hover h3,.patient-card:hover h3,.tech-card:hover h3,.tip-card:hover h3,.card-shadow:hover .patient-card-title,.blog-card:hover .blog-card-title,.team-card:hover>p:first-of-type{animation-play-state:running !important;}</style>
+  .card-shadow:hover,.team-card:hover,.tech-card:hover,.blog-card:hover,.patient-card:hover{animation-play-state:running !important;}.card-shadow:hover h3,.service-card:hover h3,.patient-card:hover h3,.tech-card:hover h3,.card-shadow:hover .patient-card-title,.blog-card:hover .blog-card-title,.team-card:hover>p:first-of-type{animation-play-state:running !important;}</style>
 </head>
 <body>
 
@@ -140,7 +140,7 @@
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-      <!-- Review of Information Form -->
+      <!-- Release of Information -->
       <a href="https://barroweyecenter-visionsource.com/wp-content/uploads/sites/1187/2023/09/Review-of-Information-Form.pdf" target="_blank" rel="noopener" class="patient-card bg-white rounded-xl p-6 card-shadow has-photo flex flex-col gap-3 fade-in" style="text-decoration:none;--photo:url('/brand_assets/candid/waiting-form.jpg');">
         <div class="patient-icon-box w-11 h-11 rounded-xl flex items-center justify-center" style="background:#E3EEE9;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -152,8 +152,8 @@
           </svg>
         </div>
         <div>
-          <p class="patient-card-title text-sm font-semibold mb-1" style="color:#1F3D2E;transition:color 0.2s;">Review of Information Form</p>
-          <p class="text-xs text-gray-500 body-text">Complete before your visit to help us update your records quickly.</p>
+          <p class="patient-card-title text-sm font-semibold mb-1" style="color:#1F3D2E;transition:color 0.2s;">Release of Information</p>
+          <p class="text-xs text-gray-500 body-text">Complete before your visit to authorize the release of your records.</p>
         </div>
         <p class="text-xs font-semibold mt-auto" style="color:#C8943A;">Download PDF &rarr;</p>
       </a>

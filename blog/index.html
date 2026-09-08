@@ -262,18 +262,18 @@
     <!-- TO ADD A NEW PRACTICE POST: duplicate one <article> block and update content. -->
     <div class="grid md:grid-cols-2 gap-6 mb-4">
 
-      <article class="practice-post">
+      <article class="practice-post" style="cursor:pointer;" onclick="window.location.href='/contact/'">
         <p class="text-xs text-gray-400 mb-2" style="letter-spacing:0.08em;">May 2026</p>
         <h2 class="heading-display text-forest-900 mb-3" style="font-size:1.25rem; font-weight:600;">Welcome to Our New Website</h2>
         <p class="text-gray-500 text-sm body-text">We've launched a brand-new website to make it easier to learn about our services, meet our team, and book your appointment. Take a look around and let us know what you think!</p>
-        <a href="/#contact" class="inline-flex items-center gap-1 mt-4 text-gold-500 hover:text-gold-600 text-sm font-semibold transition-colors duration-200">Contact Us <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="/contact/" class="inline-flex items-center gap-1 mt-4 text-gold-500 hover:text-gold-600 text-sm font-semibold transition-colors duration-200">Contact Us <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </article>
 
-      <article class="practice-post">
+      <article class="practice-post" style="cursor:pointer;" onclick="window.location.href='/contact/'">
         <p class="text-xs text-gray-400 mb-2" style="letter-spacing:0.08em;">Back to School 2026</p>
         <h2 class="heading-display text-forest-900 mb-3" style="font-size:1.25rem; font-weight:600;">Back-to-School Eye Exams Are Essential</h2>
         <p class="text-gray-500 text-sm body-text">80% of learning is visual. Schedule your child's annual eye exam before the school year starts — early detection of vision problems can make all the difference in the classroom.</p>
-        <a href="/#contact" class="inline-flex items-center gap-1 mt-4 text-gold-500 hover:text-gold-600 text-sm font-semibold transition-colors duration-200">Book Now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="/contact/" class="inline-flex items-center gap-1 mt-4 text-gold-500 hover:text-gold-600 text-sm font-semibold transition-colors duration-200">Book Now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </article>
 
     </div>
@@ -509,7 +509,7 @@
       });
 
       grid.innerHTML = articles.map((article, i) => `
-        <article class="blog-card">
+        <article class="blog-card" style="cursor:pointer;" onclick="vsOpenArticle(${i})">
           ${article.img
             ? `<img class="blog-card-img" src="${article.img}" alt="${article.title.replace(/"/g,'&quot;')}" loading="lazy" onerror="this.nextElementSibling.style.display='flex';this.remove();">`
             : ''}

@@ -61,8 +61,16 @@
     .service-card:hover::before{transform:scaleY(1);}
     .icon-box{transition:transform 0.28s cubic-bezier(.34,1.56,.64,1),background 0.25s;}
     .service-card:hover .icon-box{transform:translateY(-3px) scale(1.1);}
-    .ins-chip{transition:border-color 0.2s,color 0.2s,background 0.2s,transform 0.2s cubic-bezier(.34,1.56,.64,1);}
-    .ins-chip:hover{border-color:#C8943A;color:#1C3329;background:#F7EDDB;transform:translateY(-2px);}
+    .service-card.expandable{cursor:pointer;}
+    .service-card.expandable:focus-visible{outline:3px solid #ECC57A;outline-offset:2px;}
+    .service-card.static-card{cursor:default;}
+    .service-card.static-card:hover{transform:translateZ(0);box-shadow:0 2px 16px rgba(20,43,32,0.32),0 8px 40px rgba(20,43,32,0.22),0 0 70px rgba(200,148,58,0.22),0 0 160px rgba(200,148,58,0.10);border-color:rgba(168,195,176,0.28);}
+    .service-card.static-card:hover::before{transform:scaleY(0);}
+    .service-card.static-card:hover .icon-box{transform:none;}
+    .service-card-extra{max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.4,0,.2,1),margin-top 0.35s cubic-bezier(.4,0,.2,1);}
+    .service-card.is-open .service-card-extra{margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.15);}
+    .ins-chip{transition:border-color 0.2s,color 0.2s,background 0.2s;}
+    .ins-chip:hover{border-color:#C8943A;color:#1C3329;background:#F7EDDB;}
     .patient-card{transition:box-shadow 0.25s,transform 0.25s cubic-bezier(.4,0,.2,1);transform:translateZ(0)}
     .patient-card:hover{transform:translateY(-4px) translateZ(0);box-shadow:0 8px 28px rgba(20,43,32,0.45),0 16px 48px rgba(20,43,32,0.28);border-color:rgba(168,195,176,0.50);}
     .team-card{background:linear-gradient(-45deg,#1F3D2E,#2A5040,#3A6A52,#4A8A6A,#3A6A52,#2A5040,#1F3D2E);background-size:400% 400%;animation:card-flow 11s ease infinite;animation-play-state:paused;border-radius:1rem;overflow:hidden;border:1.5px solid rgba(168,195,176,0.25);box-shadow:0 2px 12px rgba(20,43,32,0.30),0 8px 32px rgba(20,43,32,0.20);transition:transform 0.28s cubic-bezier(.4,0,.2,1),border-color 0.28s;transform:translateZ(0)}
@@ -145,8 +153,8 @@
 
     <div class="grid md:grid-cols-3 gap-6">
 
-      <!-- Card 1: Comprehensive Eye Exams -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="--photo:url('/brand_assets/candid/waiting-form.jpg');">
+      <!-- Card 1: Comprehensive Eye Exams (expandable) -->
+      <div class="service-card expandable bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="--photo:url('/brand_assets/candid/waiting-form.jpg');" role="button" tabindex="0" aria-expanded="false" onclick="toggleServiceCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleServiceCard(this);}">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E3EEE9;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <ellipse cx="12" cy="12" rx="10" ry="6"/>
@@ -155,10 +163,14 @@
         </div>
         <h3 class="heading-display text-forest-900 mb-3" style="font-size:1.2rem;color:#1F3D2E;">Comprehensive Eye Exams</h3>
         <p class="text-gray-600 body-text" style="font-size:0.875rem;">Full visual acuity testing, refraction, slit-lamp evaluation, glaucoma screening, retinal photography, and ophthalmoscopy — all under one roof.</p>
+        <div class="service-card-extra">
+          <p class="text-gray-600 body-text" style="font-size:0.8125rem;">Exams for every age, from infants to patients 100+ years old. School exams also available.</p>
+        </div>
+        <p class="service-card-toggle text-xs font-semibold mt-3" style="color:#C8943A;">+ More Info</p>
       </div>
 
-      <!-- Card 2: Contact Lenses -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.07s;--photo:url('/brand_assets/candid/lab-work.jpg');">
+      <!-- Card 2: Contact Lenses (expandable) -->
+      <div class="service-card expandable bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.07s;--photo:url('/brand_assets/candid/lab-work.jpg');" role="button" tabindex="0" aria-expanded="false" onclick="toggleServiceCard(this,event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleServiceCard(this);}">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E3EEE9;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"/>
@@ -167,11 +179,23 @@
         </div>
         <h3 class="heading-display text-forest-900 mb-3" style="font-size:1.2rem;color:#1F3D2E;">Contact Lenses</h3>
         <p class="text-gray-600 body-text mb-4" style="font-size:0.875rem;">Expert contact lens fittings for soft lenses, silicone hydrogel, and specialty contacts. Reorder online through our convenient patient store.</p>
-        <a href="https://barrow.myclstore.com/" target="_blank" rel="noopener" class="text-xs font-semibold" style="color:#C8943A;letter-spacing:0.04em;text-decoration:underline;text-underline-offset:3px;">Order Contacts Online &rarr;</a>
+        <a href="https://barrow.myclstore.com/" target="_blank" rel="noopener" onclick="event.stopPropagation()" class="text-xs font-semibold" style="color:#C8943A;letter-spacing:0.04em;text-decoration:underline;text-underline-offset:3px;">Order Contacts Online &rarr;</a>
+        <div class="service-card-extra">
+          <p class="text-gray-600 body-text mb-2" style="font-size:0.8125rem;">We fit a full variety of contact lenses:</p>
+          <ul class="text-gray-600 body-text" style="font-size:0.8125rem;padding-left:1.1rem;list-style:disc;">
+            <li>Daily lenses</li>
+            <li>Bi-weekly lenses</li>
+            <li>Monthly lenses</li>
+            <li>Single vision lenses</li>
+            <li>Toric lenses (astigmatism)</li>
+            <li>Multifocal contact lenses</li>
+          </ul>
+        </div>
+        <p class="service-card-toggle text-xs font-semibold mt-3" style="color:#C8943A;">+ More Info</p>
       </div>
 
-      <!-- Card 3: Eyewear & Frames -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.14s;--photo:url('/brand_assets/candid/frames-help.jpg');">
+      <!-- Card 3: Eyewear & Frames (links to Brands section) -->
+      <a href="#brands" class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in block" style="transition-delay:0.14s;--photo:url('/brand_assets/candid/frames-help.jpg');text-decoration:none;">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E3EEE9;">
           <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="#1F3D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="1" y="3" width="10" height="10" rx="5"/>
@@ -183,10 +207,11 @@
         </div>
         <h3 class="heading-display text-forest-900 mb-3" style="font-size:1.2rem;color:#1F3D2E;">Eyewear &amp; Frames</h3>
         <p class="text-gray-600 body-text" style="font-size:0.875rem;">An extensive selection of designer frames and precision-crafted lenses to fit your style, prescription, and budget perfectly.</p>
-      </div>
+        <p class="text-xs font-semibold mt-3" style="color:#C8943A;letter-spacing:0.04em;">See Brands We Carry &rarr;</p>
+      </a>
 
       <!-- Card 4: Glaucoma Management -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.05s;--photo:url('/brand_assets/candid/reception-phone.jpg');">
+      <div class="service-card static-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.05s;--photo:url('/brand_assets/candid/reception-phone.jpg');">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#FDF3E0;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A87830" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
@@ -197,7 +222,7 @@
       </div>
 
       <!-- Card 5: Macular Degeneration -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.12s;--photo:url('/brand_assets/candid/front-desk.jpg');">
+      <div class="service-card static-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.12s;--photo:url('/brand_assets/candid/front-desk.jpg');">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#FDF3E0;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A87830" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="8" height="8" rx="1"/>
@@ -211,7 +236,7 @@
       </div>
 
       <!-- Card 6: Diabetic Eye Care -->
-      <div class="service-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.19s;--photo:url('/brand_assets/candid/frames-browse.jpg');">
+      <div class="service-card static-card bg-white rounded-xl p-8 card-shadow has-photo fade-in" style="transition-delay:0.19s;--photo:url('/brand_assets/candid/frames-browse.jpg');">
         <div class="icon-box w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#FDF3E0;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A87830" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
@@ -286,7 +311,7 @@
 </section>
 
 <!-- EYEWEAR BRANDS -->
-<section style="background:#F8F4EF;padding:5rem 1.5rem;">
+<section id="brands" style="background:#F8F4EF;padding:5rem 1.5rem;scroll-margin-top:5rem;">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-10 fade-in">
       <p class="text-xs font-medium uppercase tracking-widest mb-3" style="color:#C8943A;letter-spacing:0.18em;">Frames &amp; Sunwear</p>
@@ -433,6 +458,15 @@
   faders.forEach(el=>{el.classList.add('will-animate');fo.observe(el);});
   document.querySelectorAll('.gold-rule').forEach(el=>{el.classList.add('rule-hidden');const ro=new IntersectionObserver(([e])=>{if(e.isIntersecting){el.classList.remove('rule-hidden');el.classList.add('rule-shown');ro.disconnect();}},{threshold:0.5});ro.observe(el);});
   document.querySelectorAll('.btn-gold,.btn-forest').forEach(btn=>{btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.18}px) translateY(-2px)`;});btn.addEventListener('mouseleave',()=>{btn.style.transform='';});});
+
+  function toggleServiceCard(card){
+    const extra = card.querySelector('.service-card-extra');
+    const label = card.querySelector('.service-card-toggle');
+    const isOpen = card.classList.toggle('is-open');
+    card.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (label) label.textContent = isOpen ? '− Less Info' : '+ More Info';
+    if (extra) extra.style.maxHeight = isOpen ? extra.scrollHeight + 'px' : '0';
+  }
 
   // Card animations are paused by default; CSS :hover triggers them
 </script>
