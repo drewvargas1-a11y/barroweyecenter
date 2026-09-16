@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /temporary screenshots/
 
-Sitemap: https://barroweyecenter.com/sitemap.xml
+Sitemap: https://www.barroweyecenter.com/sitemap.xml
