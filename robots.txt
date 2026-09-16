@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /temporary screenshots/
-Disallow: /brand_assets/
 
 Sitemap: https://barroweyecenter.com/sitemap.xml
