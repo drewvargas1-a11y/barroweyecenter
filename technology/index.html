@@ -67,7 +67,7 @@
     @keyframes card-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}.card-shadow{background:linear-gradient(-45deg,#1F3D2E,#2A5040,#3A6A52,#4A8A6A,#3A6A52,#2A5040,#1F3D2E) !important;background-size:400% 400% !important;animation:card-flow 9s ease infinite;animation-play-state:paused;border:1.5px solid rgba(168,195,176,0.28);box-shadow:0 2px 16px rgba(20,43,32,0.32),0 8px 40px rgba(20,43,32,0.22);color:rgba(255,255,255,0.92) !important;}.card-shadow .text-gray-400,.card-shadow .text-gray-500,.card-shadow .text-gray-600,.service-card .text-gray-500,.service-card .text-gray-600,.patient-card .text-gray-400,.patient-card .text-gray-500{color:rgba(255,255,255,0.70) !important;}.card-shadow *[style*="color:#1F3D2E"],.card-shadow *[style*="color:#1C3329"],.service-card *[style*="color:#1F3D2E"],.patient-card *[style*="color:#1F3D2E"],.team-card *[style*="color:#1F3D2E"],.blog-card *[style*="color:#1F3D2E"]{color:rgba(255,255,255,0.95) !important;}.card-shadow .text-forest-900,.card-shadow .text-forest-800,.card-shadow .text-forest-700,.service-card .text-forest-900,.service-card .text-forest-800,.patient-card .text-forest-900,.team-card .text-forest-900{color:rgba(255,255,255,0.95) !important;}.patient-card-title{color:rgba(255,255,255,0.95) !important;}.card-shadow svg:not(.no-invert),.service-card svg:not(.no-invert),.patient-card svg:not(.no-invert),.team-card svg:not(.no-invert){filter:brightness(0) invert(1);}.icon-box{background:rgba(255,255,255,0.12) !important;}.icon-box svg{filter:brightness(0) invert(1);}.patient-icon-box{background:rgba(255,255,255,0.12) !important;}.patient-icon-box svg{filter:brightness(0) invert(1);}
     .btn-gold{display:inline-block;background:#C8943A;color:#fff;font-weight:500;padding:0.75rem 1.75rem;border-radius:0.375rem;transition:background 0.25s,transform 0.18s cubic-bezier(.34,1.56,.64,1),box-shadow 0.25s;box-shadow:0 2px 12px rgba(200,148,58,0.35);}
     .btn-gold:hover{background:#A87830;transform:translateY(-2px);box-shadow:0 6px 24px rgba(200,148,58,0.45);}
-    .btn-gold:focus-visible{outline:3px solid #ECC57A;outline-offset:2px;}
+    .btn-gold:focus-visible{outline:3px solid #ECC57A;outline-offset:2px;}@keyframes tel-glow-pulse{0%,100%{filter:drop-shadow(0 0 0 rgba(200,148,58,0));}50%{filter:drop-shadow(0 0 10px rgba(200,148,58,0.85));}}.tel-glow{animation:tel-glow-pulse 2.4s ease-in-out infinite;}.tel-glow:hover{animation-play-state:paused;}
     .btn-forest{background:#1F3D2E;color:#fff;font-weight:500;padding:0.75rem 1.75rem;border-radius:0.375rem;transition:background 0.25s,transform 0.18s cubic-bezier(.34,1.56,.64,1),box-shadow 0.25s;box-shadow:0 2px 12px rgba(31,61,46,0.28);}
     .btn-forest:hover{background:#2A5040;transform:translateY(-2px);}
     .btn-forest:focus-visible{outline:3px solid #A8C5B5;outline-offset:2px;}
@@ -116,7 +116,7 @@
       <a href="/blog/" class="nav-link text-white/80 hover:text-white text-sm font-medium transition-colors duration-200">Blog</a>
     </div>
     <div class="hidden lg:flex items-center gap-4">
-      <a href="tel:2707258382" class="text-white/70 hover:text-white text-sm transition-colors duration-200">(270) 725-8382</a>
+      <a href="tel:2707258382" class="text-gold-400 hover:text-gold-300 text-sm font-bold transition-colors duration-200">(270) 725-8382</a>
       <a href="/contact/" class="btn-gold text-sm">Book Appointment</a>
     </div>
     <button id="menu-btn" class="lg:hidden text-white p-2 rounded" aria-label="Open menu">
@@ -133,7 +133,7 @@
       <a href="/patient-center/" class="text-white/80 hover:text-white text-sm py-1" onclick="closeMobileMenu()">Patient Center</a>
       <a href="/contact/" class="text-white/80 hover:text-white text-sm py-1" onclick="closeMobileMenu()">Contact</a>
       <a href="/blog/" class="text-white/80 hover:text-white text-sm py-1" onclick="closeMobileMenu()">Blog</a>
-      <a href="tel:2707258382" class="btn-gold text-sm text-center mt-2">(270) 725-8382</a>
+      <a href="tel:2707258382" class="btn-gold tel-glow text-sm text-center mt-2">(270) 725-8382</a>
     </div>
   </div>
 </nav>
@@ -220,7 +220,7 @@
       <h3 class="heading-display text-white mb-2" style="font-size:clamp(1.4rem,3vw,1.9rem);">We're Here When You Need Us</h3>
       <p class="text-sm" style="color:rgba(255,255,255,0.75);line-height:1.7;">Sudden vision changes, eye injuries, or painful eyes require prompt attention.</p>
     </div>
-    <a href="tel:2708475236" class="flex-shrink-0 inline-block bg-white font-semibold px-7 py-3.5 rounded-lg text-sm" style="color:#1F3D2E;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:transform 0.18s cubic-bezier(.34,1.56,.64,1),box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.15)';">Emergency: (270) 847-5236</a>
+    <a href="tel:2708475236" class="flex-shrink-0 inline-block bg-white font-semibold px-7 py-3.5 rounded-lg text-sm tel-glow" style="color:#1F3D2E;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:transform 0.18s cubic-bezier(.34,1.56,.64,1),box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.15)';">Emergency: (270) 847-5236</a>
   </div>
 </section>
 
@@ -231,7 +231,7 @@
     <p class="text-white/55 text-sm mb-8" style="line-height:1.7;">We're accepting new patients. Book online or give us a call.</p>
     <div class="flex flex-wrap gap-4 justify-center">
       <a href="/contact/" class="btn-gold px-8 py-3">Book an Appointment</a>
-      <a href="tel:2707258382" style="display:inline-block;background:transparent;color:#fff;font-weight:500;border:1.5px solid rgba(255,255,255,0.35);padding:0.75rem 2rem;border-radius:0.375rem;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">(270) 725-8382</a>
+      <a class="tel-glow" href="tel:2707258382" style="display:inline-block;background:transparent;color:#fff;font-weight:500;border:1.5px solid rgba(255,255,255,0.35);padding:0.75rem 2rem;border-radius:0.375rem;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">(270) 725-8382</a>
     </div>
   </div>
 </section>
@@ -284,7 +284,7 @@
       <p class="text-white text-sm mb-4" style="font-weight:600;">Contact</p>
       <div class="space-y-2 text-sm">
         <p>102 Armory Dr., Russellville, KY 42276</p>
-        <p><a href="tel:2707258382" class="hover:text-white transition-colors duration-200">(270) 725-8382</a></p>
+        <p><a href="tel:2707258382" class="text-gold-400 hover:text-gold-300 font-bold transition-colors duration-200">(270) 725-8382</a></p>
         <p>Mon – Fri: 8:30 AM – 5:00 PM</p>
         <p class="mt-4"><a href="https://www.facebook.com/barrow.eye.center" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-white transition-colors duration-200"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Facebook</a></p>
       </div>

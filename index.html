@@ -131,6 +131,9 @@
     .btn-gold:hover::after { background-position: -100% 0; }
     .btn-gold:focus-visible { outline: 3px solid #ECC57A; outline-offset: 2px; }
     .btn-gold:active { transform: translateY(0); }
+    @keyframes tel-glow-pulse { 0%,100%{filter:drop-shadow(0 0 0 rgba(200,148,58,0));} 50%{filter:drop-shadow(0 0 10px rgba(200,148,58,0.85));} }
+    .tel-glow { animation: tel-glow-pulse 2.4s ease-in-out infinite; }
+    .tel-glow:hover { animation-play-state: paused; }
     .btn-outline { background: transparent; color: #fff; font-weight: 500; border: 1.5px solid rgba(255,255,255,0.45); padding: 0.75rem 1.75rem; border-radius: 0.375rem; transition: background 0.25s, border-color 0.25s, transform 0.18s cubic-bezier(.34,1.56,.64,1); }
     .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.8); transform: translateY(-2px); }
     .btn-outline:focus-visible { outline: 3px solid #ECC57A; outline-offset: 2px; }
@@ -193,7 +196,7 @@
       <a href="/blog/"           class="nav-link text-white/80 hover:text-white text-sm font-medium transition-colors duration-200">Blog</a>
     </div>
     <div class="hidden lg:flex items-center gap-4">
-      <a href="tel:2707258382" class="text-white/70 hover:text-white text-sm transition-colors duration-200">(270) 725-8382</a>
+      <a href="tel:2707258382" class="text-gold-400 hover:text-gold-300 text-sm font-bold transition-colors duration-200">(270) 725-8382</a>
       <a href="/contact/" class="btn-gold text-sm">Book Appointment</a>
     </div>
     <button id="menu-btn" class="lg:hidden text-white p-2 rounded" aria-label="Open menu">
@@ -210,7 +213,7 @@
       <a href="/patient-center/" class="text-white/80 hover:text-white text-sm py-1" onclick="closeMobileMenu()">Patient Center</a>
       <a href="/contact/"        class="text-white/80 hover:text-white text-sm py-1" onclick="closeMobileMenu()">Contact</a>
       <a href="/blog/"           class="text-white/80 hover:text-white text-sm py-1" onclick="closeMobileMenu()">Blog</a>
-      <a href="tel:2707258382"   class="btn-gold text-sm text-center mt-2">(270) 725-8382</a>
+      <a href="tel:2707258382" class="btn-gold tel-glow text-sm text-center mt-2">(270) 725-8382</a>
     </div>
   </div>
 </nav>
@@ -247,7 +250,7 @@
         </p>
         <div class="hero-ctas flex flex-wrap gap-4 mb-14">
           <a href="/contact/" class="btn-gold text-sm px-7 py-3.5">Schedule an Appointment</a>
-          <a href="tel:2707258382" class="btn-outline text-sm px-7 py-3.5">Call (270) 725-8382</a>
+          <a href="tel:2707258382" class="btn-outline tel-glow text-sm px-7 py-3.5">Call (270) 725-8382</a>
         </div>
         <div class="hero-ctas grid grid-cols-3" style="max-width:420px;">
           <div>
@@ -430,7 +433,7 @@
     <p class="text-gray-500 body-text mb-8 max-w-md mx-auto">Our friendly team is here Monday through Friday. Call us or fill out our online request form and we'll get back to you promptly.</p>
     <div class="flex flex-wrap gap-4 justify-center">
       <a href="/contact/" class="btn-gold px-8 py-3 text-sm">Book an Appointment</a>
-      <a href="tel:2707258382" style="display:inline-block; background:transparent; color:#1F3D2E; font-weight:500; border:1.5px solid #A8C5B5; padding:0.75rem 2rem; border-radius:0.375rem; transition:background 0.25s,border-color 0.25s; font-size:0.875rem;"
+      <a class="tel-glow" href="tel:2707258382" style="display:inline-block; background:transparent; color:#1F3D2E; font-weight:500; border:1.5px solid #A8C5B5; padding:0.75rem 2rem; border-radius:0.375rem; transition:background 0.25s,border-color 0.25s; font-size:0.875rem;"
          onmouseover="this.style.background='#E3EEE9'; this.style.borderColor='#2A5040';"
          onmouseout="this.style.background='transparent'; this.style.borderColor='#A8C5B5';">
         (270) 725-8382
@@ -470,7 +473,7 @@
       <p class="text-white text-sm mb-4" style="font-weight:600;">Contact</p>
       <div class="space-y-2 text-sm">
         <p>102 Armory Dr., Russellville, KY 42276</p>
-        <p><a href="tel:2707258382" class="hover:text-white transition-colors duration-200">(270) 725-8382</a></p>
+        <p><a href="tel:2707258382" class="text-gold-400 hover:text-gold-300 font-bold transition-colors duration-200">(270) 725-8382</a></p>
         <p>Mon – Fri: 8:30 AM – 5:00 PM</p>
         <p class="mt-4"><a href="https://www.facebook.com/barrow.eye.center" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-white transition-colors duration-200"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Facebook</a></p>
       </div>
