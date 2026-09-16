@@ -118,10 +118,14 @@
 </nav>
 
 <!-- PAGE HERO -->
-<section style="background:linear-gradient(145deg,#273F30 0%,#1C3626 60%,#162C1E 100%);padding:9rem 1.5rem 5rem;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(168,197,181,0.12) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);"></div>
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(200,148,58,0.09) 0%,transparent 65%);"></div>
-  <div class="max-w-3xl mx-auto text-center" style="position:relative;z-index:2;">
+<section style="padding:9rem 1.5rem 5rem;position:relative;overflow:hidden;">
+  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" poster="/brand_assets/glasses-pan-poster.jpg">
+    <source src="/brand_assets/glasses-pan.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute;inset:0;background:linear-gradient(145deg,rgba(39,63,48,0.88) 0%,rgba(28,54,38,0.90) 60%,rgba(22,44,30,0.93) 100%);z-index:1;"></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(168,197,181,0.12) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);z-index:2;"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(200,148,58,0.09) 0%,transparent 65%);z-index:2;"></div>
+  <div class="max-w-3xl mx-auto text-center" style="position:relative;z-index:3;">
     <p class="text-xs font-medium tracking-widest uppercase mb-4" style="color:#D9AA58;letter-spacing:0.22em;">Before Your Visit</p>
     <h1 class="heading-display text-white mb-5" style="font-size:clamp(2.2rem,5vw,3.5rem);">Patient Center</h1>
     <p class="text-white/55" style="font-size:1.0625rem;max-width:520px;margin:0 auto;line-height:1.75;">Download forms ahead of time to save time at check-in — or order contacts online anytime.</p>
@@ -300,20 +304,6 @@
     <div class="flex flex-wrap gap-4 justify-center">
       <a href="/contact/" class="btn-gold px-8 py-3">Book an Appointment</a>
       <a href="tel:2707258382" style="display:inline-block;background:transparent;color:#fff;font-weight:500;border:1.5px solid rgba(255,255,255,0.35);padding:0.75rem 2rem;border-radius:0.375rem;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">(270) 725-8382</a>
-    </div>
-  </div>
-</section>
-
-<!-- OFFICE VIDEO STRIP -->
-<section style="background:#212121;padding:0;">
-  <div style="position:relative;overflow:hidden;height:580px;">
-    <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;" poster="/brand_assets/glasses-pan-poster.jpg">
-      <source src="/brand_assets/glasses-pan.mp4" type="video/mp4">
-    </video>
-    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,25,15,0.55) 0%,transparent 45%);"></div>
-    <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem;text-align:center;">
-      <p style="color:rgba(200,148,58,0.90);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.5rem;">Our Optical Boutique</p>
-      <p class="text-white font-semibold" style="font-size:1.15rem;font-family:'Playfair Display',serif;">A curated collection of frames for every style.</p>
     </div>
   </div>
 </section>
