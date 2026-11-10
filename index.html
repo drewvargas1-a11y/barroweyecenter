@@ -291,7 +291,19 @@
     </div>
     <div class="flex flex-col items-center">
       <div style="height:90px; display:flex; align-items:center; justify-content:center;">
-        <img src="https://barroweyecenter-visionsource.com/wp-content/uploads/sites/1187/2018/11/BEC-RIBBON-300x300.jpg" alt="KY Young Optometrist of the Year Award" class="award-badge rounded-full object-cover" style="width:80px; height:80px;" onerror="this.style.display='none'">
+        <svg class="award-badge rounded-full" width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="KY Young Optometrist of the Year Award">
+          <defs>
+            <linearGradient id="award-gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ECC57A"/><stop offset="0.5" stop-color="#C8943A"/><stop offset="1" stop-color="#A9772A"/>
+            </linearGradient>
+          </defs>
+          <circle cx="40" cy="40" r="40" fill="#1F3D2E"/>
+          <path d="M31 46 L24 70 L31 65 L35 72 L40 50 Z" fill="#A9772A"/>
+          <path d="M49 46 L56 70 L49 65 L45 72 L40 50 Z" fill="#C8943A"/>
+          <circle cx="40" cy="34" r="20" fill="url(#award-gold)"/>
+          <circle cx="40" cy="34" r="15" fill="none" stroke="#FFFBF0" stroke-opacity="0.55" stroke-width="1.2" stroke-dasharray="2 2.4"/>
+          <path d="M40 25.5 L42.6 31 L48.5 31.6 L44 35.6 L45.3 41.4 L40 38.4 L34.7 41.4 L36 35.6 L31.5 31.6 L37.4 31 Z" fill="#FFFBF0"/>
+        </svg>
       </div>
       <span class="text-forest-700 font-semibold text-base mt-2">Award Winner</span>
       <span class="text-gray-400 text-xs tracking-widest uppercase mt-1" style="letter-spacing:0.12em;">KY Young OD of the Year</span>
